@@ -1,6 +1,7 @@
 
 package ge.mziuri.test.dao;
 
+/*
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import ge.mziuri.daotest.model.Contest;
 import ge.mziuri.daotest.model.User;
@@ -14,3 +15,4 @@ public interface ContestDAO {
  
    
 }
+*/
