@@ -49,13 +49,36 @@ public class UserDAOImpl implements UserDAO {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-       
     }
 
     @Override
-    public User getUser(String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public User getUser(String username,String password) {
+        User user = null;
+        try { 
+            pstmt = con.prepareStatement("SELECT * FROM  systemuser  WHERE username = ? AND password = ? ;");
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                int id = rs.getInt("id");
+                String firstname=rs.getString("firstname");
+                String lastname=rs.getString("lastname");
+                String email=rs.getString("email");
+                boolean admin=rs.getBoolean("admin");
+               
+               
+                user = new User();
+                user.setAdmin(admin);
+                user.setEmail(email);
+                user.setFirstname(firstname);
+                user.setId(id);
+                user.setLastname(lastname);
+                user.setPassword(password);
+                user.setUsername(username);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return user;
     }
-    
-    
 }

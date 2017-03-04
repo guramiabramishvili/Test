@@ -1,9 +1,9 @@
 
 package ge.mziuri.test.servlet;
-/*
-import ge.mziuri.dao.UserDAO;
-import ge.mziuri.dao.UserDAOImpl;
-import ge.mziuri.model.User;
+
+import ge.mziuri.test.dao.UserDAO;
+import ge.mziuri.test.dao.UserDAOImpl;
+import ge.mziuri.test.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +19,7 @@ public class LoginServlet extends HttpServlet {
     
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("rame");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         UserDAO userDAO = new UserDAOImpl();
@@ -29,8 +30,7 @@ public class LoginServlet extends HttpServlet {
         if (user == null) {
             pw.append("ასეთი მომხმარებელი არ არისებობს!");
         } else {
-            pw.append("გამარჯობა " + user.getFirstName());
+            pw.append("გამარჯობა " + user.getFirstname());
         }
     }
 }
-*/

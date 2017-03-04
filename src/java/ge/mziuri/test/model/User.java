@@ -10,7 +10,6 @@ public class User {
     private String username;
     private String password;
     private String email;
-  
 
     public int getId() {
         return id;
@@ -68,18 +67,11 @@ public class User {
         this.email = email;
     }
 
-    public User(int id, boolean admin, String firstname, String lastname, String password, String username, String email) {
-        this.id = id;
-        this.admin = admin;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.password = password;
-        this.username = username;
-        this.email = email;
+    public User() {        
     }
 
-    public User() {
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", admin=" + admin + ", firstname=" + firstname + ", lastname=" + lastname + ", username=" + username + ", password=" + password + ", email=" + email + '}';
     }
- 
-   
 }
