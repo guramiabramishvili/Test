@@ -29,6 +29,8 @@ public class LoginServlet extends HttpServlet {
         PrintWriter pw = response.getWriter();
         if (user == null) {
             pw.append("ასეთი მომხმარებელი არ არისებობს!");
+        } if (user.isAdmin()==true) {
+             pw.append("ადმინისტრატორს ვახლავარ ");
         } else {
             pw.append("გამარჯობა " + user.getFirstname());
         }

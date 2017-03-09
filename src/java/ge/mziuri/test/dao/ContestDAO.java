@@ -1,18 +1,17 @@
 
 package ge.mziuri.test.dao;
 
-/*
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
-import ge.mziuri.daotest.model.Contest;
-import ge.mziuri.daotest.model.User;
+
+
+import ge.mziuri.test.model.Contest;
+import ge.mziuri.test.model.User;
 import java.util.List;
 
 
 public interface ContestDAO {
    List <Contest> getAllContest ();
    void addContest (Contest contest);
-   void getcontesetbyid (Integer contesetid);
+ //  void getcontesetbyid (Integer contesetid);
  
    
 }
-*/

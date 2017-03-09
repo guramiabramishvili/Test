@@ -16,8 +16,8 @@ public class Contest implements Serializable {
     private Date date;
     private Time time;
     private int duration;  //წამებში 
-    private List<Test> tests = new ArrayList<>();
-    private List<Result> results = new ArrayList<>();
+ //   private List<Test> tests = new ArrayList<>();
+   // private List<Result> results = new ArrayList<>();
 
     public Contest() {
     }
@@ -70,22 +70,7 @@ public class Contest implements Serializable {
         this.duration = duration;
     }
 
-    public List<Test> getTests() {
-        return tests;
-    }
 
-    public void setTests(List<Test> tests) {
-        this.tests = tests;
-    }
-
-    public List<Result> getResults() {
-        return results;
-    }
-
-    public void setResults(List<Result> results) {
-        this.results = results;
-    }
-    
 
    
 }
