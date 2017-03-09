@@ -65,8 +65,7 @@ public class UserDAOImpl implements UserDAO {
                 String lastname=rs.getString("lastname");
                 String email=rs.getString("email");
                 boolean admin=rs.getBoolean("admin");
-               
-               
+                System.out.println(username + " " + admin);
                 user = new User();
                 user.setAdmin(admin);
                 user.setEmail(email);

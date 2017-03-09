@@ -25,18 +25,19 @@ public class CreateContestServlet extends HttpServlet {
         @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
-        Date date = request.getParameter("date");
-        Time time = request.getParameter("time");
-        int duration = request.getParameter("duration");
+        String date = request.getParameter("date");
+        String time = request.getParameter("time");
+        String duration = request.getParameter("duration");
         
-        Contest contest = new Contest();
-        contest.setDate(date);
-        contest.setDuration(duration);
-        contest.setName(name);
-        contest.setTime(time);
-        ContestDAO contestDAO = new ContestDAOImpl();
+//        Contest contest = new Contest();
+//        contest.setDate(date);
+//        contest.setDuration(duration);
+//        contest.setName(name);
+//        contest.setTime(time);
+//        ContestDAO contestDAO = new ContestDAOImpl();
         
-           contestDAO.addContest(contest);
+//           contestDAO.addContest(contest);
+        System.out.println(date + " " + time + " " + duration);
             RequestDispatcher rd = request.getRequestDispatcher("createtest.html");
             rd.forward(request, response);
        

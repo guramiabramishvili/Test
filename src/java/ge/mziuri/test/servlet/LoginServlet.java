@@ -1,4 +1,3 @@
-
 package ge.mziuri.test.servlet;
 
 import ge.mziuri.test.dao.UserDAO;
@@ -11,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class LoginServlet extends HttpServlet {
-    
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
-         
+
     }
-    
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("rame");
@@ -29,10 +28,10 @@ public class LoginServlet extends HttpServlet {
         PrintWriter pw = response.getWriter();
         if (user == null) {
             pw.append("ასეთი მომხმარებელი არ არისებობს!");
-        } if (user.isAdmin()==true) {
-             pw.append("ადმინისტრატორს ვახლავარ ");
+        } else if (user.isAdmin() == true) {
+            pw.append("ადმინისტრატორს ვახლავარ ");
         } else {
             pw.append("გამარჯობა " + user.getFirstname());
-        }
+        }       
     }
 }

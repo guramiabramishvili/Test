@@ -17,7 +17,7 @@ public class Contest implements Serializable {
     private Time time;
     private int duration;  //წამებში 
  //   private List<Test> tests = new ArrayList<>();
-   // private List<Result> results = new ArrayList<>();
+ // private List<Result> results = new ArrayList<>();
 
     public Contest() {
     }

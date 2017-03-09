@@ -1,35 +1,79 @@
 
+import ge.mziuri.test.dao.ContestDAO;
+import ge.mziuri.test.dao.ContestDAOImpl;
 import ge.mziuri.test.dao.UserDAO;
 import ge.mziuri.test.dao.UserDAOImpl;
 import ge.mziuri.test.exceptions.RegistrationException;
+import ge.mziuri.test.model.Contest;
 import ge.mziuri.test.model.User;
+import java.sql.Date;
+import java.sql.Time;
 
 
 public class Runner {
     public static void main(String[] args) {
-        UserDAO userDAO = new UserDAOImpl();
-        User user = new User();
+//     ContestDAO contestDAO=new ContestDAOImpl();   
+//     Contest contest1=new Contest();
+//     contest1.setDate(new Date(31536));
+//     contest1.setDuration(12);
+//     contest1.setName("IQTest");
+//     contest1.setTime(new Time(921341414));
+//     contestDAO.addContest(contest1); 
+//     
+//     
+//     
+//        
+//        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        UserDAO userDAO=new UserDAOImpl();
+       User user = new User();
         user.setAdmin(true);
         user.setEmail("lortkipanidze77@gmail.com");
-        user.setFirstname("luka");
-        user.setLastname("Lortkipanidze");
-        user.setPassword("12345678");
-        user.setUsername("lortkipanidze");
+        user.setFirstname("niko");
+      user.setLastname("ade");
+       user.setPassword("12345678");
+      user.setUsername("nikoade");
     
-    
-//        User user1=userDAO.getUser("dfsgsfd","12345678");
+//    
+//       User user1=userDAO.getUser("dfsgsfd","12345678");
 //        System.out.println(user1);
+//        
         
         
         
         
-        
-        
-     try {
+       
+    try {
             userDAO.addUser(user);
         } catch (RegistrationException ex) {
-            System.out.println("ასეთი მომხმარებელი უკვე არსებობს!");
+           System.out.println("ასეთი მომხმარებელი უკვე არსებობს!");
         }
-        
+       
     }
-}
+} 
+
+
+

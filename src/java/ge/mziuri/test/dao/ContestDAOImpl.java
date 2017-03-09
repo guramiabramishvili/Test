@@ -35,7 +35,7 @@ public class ContestDAOImpl implements ContestDAO {
     @Override
     public void addContest(Contest contest) {
       try {
-            pstmt = con.prepareStatement("INSERT INTO contest (name,date,time,duration) VALUES (?,?,?,>)");
+            pstmt = con.prepareStatement("INSERT INTO contest (name,opendate,opentime,duration) VALUES (?,?,?,?)");
             pstmt.setString(1, contest.getName());
             pstmt.setDate(2, contest.getDate());
             pstmt.setTime(3, contest.getTime());
@@ -56,8 +56,8 @@ public class ContestDAOImpl implements ContestDAO {
             while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
-                Date date = rs.getDate("date");
-                Time time = rs.getTime("time");
+                Date date = rs.getDate("opendate");
+                Time time = rs.getTime("opentime");
                 int duration=rs.getInt("duration");
                 
                 Contest contest = new Contest();
