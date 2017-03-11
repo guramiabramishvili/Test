@@ -40,7 +40,8 @@ public class ContestDAOImpl implements ContestDAO {
             pstmt.setDate(2, contest.getDate());
             pstmt.setTime(3, contest.getTime());
             pstmt.setInt(4, contest.getDuration());
-           
+     
+            
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
