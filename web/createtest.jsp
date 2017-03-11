@@ -1,9 +1,11 @@
+<%-- 
+    Document   : createtest
+    Created on : Mar 11, 2017, 3:42:15 PM
+    Author     : User
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>ახალი ტესტი</title>

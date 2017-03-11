@@ -1,3 +1,10 @@
+<%-- 
+    Document   : register
+    Created on : Mar 11, 2017, 3:50:06 PM
+    Author     : User
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,6 +22,11 @@
                 პაროლი:   <input type="password" name="password" /> <br>
                 <input type="submit" value="რეგისტრაცია" />
             </form>
+            <%
+                    if (request.getAttribute("registrationFailed") != null && request.getAttribute("registrationFailed") == Boolean.TRUE) {
+                        out.write("<p style=\"color:red;\">ასეთი მომხმარებელი უკვე არსებობს<p>");
+                    }
+                    %>
         </div>
     </body>
 </html>

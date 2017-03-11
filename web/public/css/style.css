@@ -20,6 +20,13 @@
     padding: 10px;
     width: 200px;
     margin: auto;
-    margin-top: 70px;
-    
+    margin-top: 70px;  
+}
+
+.indexPageBody {
+    background-color :purple;
+    background-image: url(322.jpg); 
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 250px
 }

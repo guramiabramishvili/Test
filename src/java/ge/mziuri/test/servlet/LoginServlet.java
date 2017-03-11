@@ -5,6 +5,8 @@ import ge.mziuri.test.dao.UserDAOImpl;
 import ge.mziuri.test.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +19,7 @@ public class LoginServlet extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         System.out.println("rame");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -27,11 +29,15 @@ public class LoginServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         PrintWriter pw = response.getWriter();
         if (user == null) {
-            pw.append("ასეთი მომხმარებელი არ არისებობს!");
+            request.setAttribute("authorizationFailed", true);
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
         } else if (user.isAdmin() == true) {
-            pw.append("ადმინისტრატორს ვახლავარ ");
+            RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
+            rd.forward(request, response);
         } else {
-            pw.append("გამარჯობა " + user.getFirstname());
+            RequestDispatcher rd = request.getRequestDispatcher("userHome.jsp");
+            rd.forward(request, response);
         }       
     }
 }

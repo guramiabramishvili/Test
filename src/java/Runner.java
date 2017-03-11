@@ -1,4 +1,3 @@
-
 import ge.mziuri.test.dao.ContestDAO;
 import ge.mziuri.test.dao.ContestDAOImpl;
 import ge.mziuri.test.dao.UserDAO;
@@ -20,34 +19,7 @@ public class Runner {
 //     contest1.setTime(new Time(921341414));
 //     contestDAO.addContest(contest1); 
 //     
-//     
-//     
-//        
-//        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+//           
         UserDAO userDAO=new UserDAOImpl();
        User user = new User();
         user.setAdmin(true);
@@ -60,12 +32,7 @@ public class Runner {
 //    
 //       User user1=userDAO.getUser("dfsgsfd","12345678");
 //        System.out.println(user1);
-//        
-        
-        
-        
-        
-       
+//         
     try {
             userDAO.addUser(user);
         } catch (RegistrationException ex) {

@@ -35,10 +35,11 @@ public class RegisterServlet extends HttpServlet {
         UserDAO userDAO = new UserDAOImpl();
         try {
             userDAO.addUser(user);
-            RequestDispatcher rd = request.getRequestDispatcher("index.html");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } catch (RegistrationException ex) {
-            RequestDispatcher rd = request.getRequestDispatcher("register.html");
+            request.setAttribute("registrationFailed", true);
+            RequestDispatcher rd = request.getRequestDispatcher("register.jsp");
             rd.forward(request, response);
         }
     }
