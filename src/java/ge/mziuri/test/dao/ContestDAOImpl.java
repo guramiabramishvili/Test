@@ -33,19 +33,20 @@ public class ContestDAOImpl implements ContestDAO {
      
      
     @Override
-    public void addContest(Contest contest) {
+    public int addContest(Contest contest) {
       try {
-            pstmt = con.prepareStatement("INSERT INTO contest (name,opendate,opentime,duration) VALUES (?,?,?,?)");
+            pstmt = con.prepareStatement("INSERT INTO contest (name,opendate,opentime,duration) VALUES (?,?,?,?) RETURNING id");
             pstmt.setString(1, contest.getName());
             pstmt.setDate(2, contest.getDate());
             pstmt.setTime(3, contest.getTime());
             pstmt.setInt(4, contest.getDuration());
-     
-            
-            pstmt.executeUpdate();
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            return rs.getInt(1);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+      return -1;
     }
     
     @Override

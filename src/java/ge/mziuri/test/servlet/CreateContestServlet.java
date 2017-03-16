@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,12 +47,14 @@ public class CreateContestServlet extends HttpServlet {
             Time time1 = new Time(milisecs);
             contest.setTime(time1);
             ContestDAO contestDAO = new ContestDAOImpl();
-            contestDAO.addContest(contest);
+            int id = contestDAO.addContest(contest);
+            Cookie cookie=new Cookie ("contest_id", "" + id);
+             response.addCookie(cookie);
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }
-
-        RequestDispatcher rd = request.getRequestDispatcher("createtest.html");
+         
+        RequestDispatcher rd = request.getRequestDispatcher("TestType.jsp");
         rd.forward(request, response);
 
     }

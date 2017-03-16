@@ -11,33 +11,33 @@ import java.sql.Time;
 
 public class Runner {
     public static void main(String[] args) {
-//     ContestDAO contestDAO=new ContestDAOImpl();   
-//     Contest contest1=new Contest();
-//     contest1.setDate(new Date(31536));
-//     contest1.setDuration(12);
-//     contest1.setName("IQTest");
-//     contest1.setTime(new Time(921341414));
-//     contestDAO.addContest(contest1); 
-//     
-//           
-        UserDAO userDAO=new UserDAOImpl();
-       User user = new User();
-        user.setAdmin(true);
-        user.setEmail("lortkipanidze77@gmail.com");
-        user.setFirstname("niko");
-      user.setLastname("ade");
-       user.setPassword("12345678");
-      user.setUsername("nikoade");
-    
+     ContestDAO contestDAO=new ContestDAOImpl();   
+     Contest contest1=new Contest();
+     contest1.setDate(new Date(31536));
+     contest1.setDuration(12);
+     contest1.setName("IQTest");
+     contest1.setTime(new Time(921341414));
+        System.out.println(contestDAO.addContest(contest1)); 
+     
+           
+//        UserDAO userDAO=new UserDAOImpl();
+//       User user = new User();
+//        user.setAdmin(true);
+//        user.setEmail("lortkipanidze77@gmail.com");
+//        user.setFirstname("niko");
+//      user.setLastname("ade");
+//       user.setPassword("12345678");
+//      user.setUsername("nikoade");
 //    
-//       User user1=userDAO.getUser("dfsgsfd","12345678");
-//        System.out.println(user1);
-//         
-    try {
-            userDAO.addUser(user);
-        } catch (RegistrationException ex) {
-           System.out.println("ასეთი მომხმარებელი უკვე არსებობს!");
-        }
+////    
+////       User user1=userDAO.getUser("dfsgsfd","12345678");
+////        System.out.println(user1);
+////         
+//    try {
+//            userDAO.addUser(user);
+//        } catch (RegistrationException ex) {
+//           System.out.println("ასეთი მომხმარებელი უკვე არსებობს!");
+//        }
        
     }
 } 

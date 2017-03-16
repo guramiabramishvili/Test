@@ -8,7 +8,7 @@
     </head>
     <body>
         <div >
-            <a href="createcontest.html">ახალი კონტესტის შექმნა</a>
+            <a href="createcontest.jsp">ახალი კონტესტის შექმნა</a>
         </div>
     </body>
 </html>

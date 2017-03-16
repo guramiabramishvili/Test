@@ -1,4 +1,3 @@
-
 package ge.mziuri.test.dao;
 
 import ge.mziuri.test.metainfo.DatabaseMetaInfo;
@@ -8,13 +7,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+public class TestDAOImpl implements TestDAO {
 
-public class TestDAOImpl  implements TestDAO{
-    
-    
-    
-    
-   private Connection con;
+    private static final String SPLITTER = "#@~";
+
+    private Connection con;
 
     private PreparedStatement pstmt;
 
@@ -26,26 +23,42 @@ public class TestDAOImpl  implements TestDAO{
             System.out.println(ex.getMessage());
         }
     }
- /*
-   @Override
+
+    @Override
     public void addTest(Test test) {
-         try {
-            pstmt = con.prepareStatement("INSERT INTO test (question,ans1,ans2,ans3,ans4,correctanswer,contest_id) VALUES (?,?,?,?,?,?,?)");
+        try {
+            pstmt = con.prepareStatement("INSERT INTO test (question_type, question, possible_answers, correct_answer_indexes, correct_open_answers, contest_id) VALUES (?,?,?,?,?,?)");
+            String answers = "";
+            for (int i = 0; i < test.getAnswers().size(); i++) {
+                answers = answers + test.getAnswers().get(i);
+                if (i != test.getAnswers().size() - 1) {
+                    answers = answers + SPLITTER;
+                }
+            }
+            String correctAnswers = "";
+            for (int i = 0; i < test.getAnswerIndexes().size(); i++) {
+                correctAnswers = correctAnswers + test.getAnswerIndexes().get(i) + SPLITTER;
+                if (i != test.getAnswerIndexes().size() - 1) {
+                    correctAnswers = correctAnswers + SPLITTER;
+                }
+            }
+            String openQuestionsAnswers = "";
+            for (int i = 0; i < test.getOpenquestionanswer().size(); i++) {
+                openQuestionsAnswers = openQuestionsAnswers + test.getOpenquestionanswer().get(i) + SPLITTER;
+                if (i != test.getOpenquestionanswer().size() - 1) {
+                    openQuestionsAnswers = openQuestionsAnswers + SPLITTER;
+                }
+            }
             
-            
-           
-            pstmt.setString(1, test.getQuestion());
-            pstmt.setString(2, test.getAns1());
-            pstmt.setString(3, test.getAns2());
-            pstmt.setString(4, test.getAns3());
-            pstmt.setString(5, test.getAns4());
-            pstmt.setString(6, test.getCorrectanswer());
-            pstmt.setInt(7, test.getContest_id());
+            pstmt.setString(1, test.getType().name());
+            pstmt.setString(2, test.getQuestion());
+            pstmt.setString(3, answers);
+            pstmt.setString(4, correctAnswers);
+            pstmt.setString(5, openQuestionsAnswers);
+            pstmt.setInt(6, test.getContestid());
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-    
-             */
-         }
-    
+    }
+}
