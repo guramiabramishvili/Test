@@ -43,4 +43,14 @@
         <servlet-name>CreateContestServlet</servlet-name>
         <url-pattern>/CreateContestServlet</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>TestTypeServlet</servlet-name>
+        <servlet-class>ge.mziuri.test.servlet.TestTypeServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>TestTypeServlet</servlet-name>
+        <url-pattern>/TestTypeServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -13,11 +13,10 @@
     </head>
     <body>
          <div class="TestTypeForm">
-            <form >
-                <input type="radio" name="testtype" value="1ans" checked> ერთპასუხიანი ტესტი<br>
-                <input type="radio" name="testtype" value="2ans"> რამდენიმეპასუხიანი ტესტი<br>
-                <input type="radio" name="testtype" value="open">ღია შეკითხვა <br>
-               
+            <form action="TestTypeServlet" method="post">
+                <input type="radio" name="testType" value="oneAns" checked>ერთპასუხიანი ტესტი<br>
+                <input type="radio" name="testType" value="multiAns">რამდენიმეპასუხიანი ტესტი<br>
+                <input type="radio" name="testType" value="open">ღია შეკითხვა<br>
                 <input type="submit" value="გაგრძელება" />
             </form>
            
