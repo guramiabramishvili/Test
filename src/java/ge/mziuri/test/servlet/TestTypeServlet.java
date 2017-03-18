@@ -32,5 +32,6 @@ public class TestTypeServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("CreateOpenTest.jsp");
             rd.forward(request, response);
         }
+        
     }
 }
