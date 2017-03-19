@@ -9,10 +9,10 @@
     <body class="indexPageBody"> 
         <div class="loginForm">        
             <form action="LoginServlet" method="post">
-                <input type="text" name="username" /> <br>
-                <input type="password" name="password" /> <br>
-                <a href="register.jsp" style="color: #0099ff"> რეგისტრაცია </a>
+                <input type="text" placeholder="მომხ.სახელი" name="username" /> <br>
+                <input type="password" placeholder="პაროლი" name="password" /> <br>
                 <input type="submit" value="შესვლა" />
+                <a href="register.jsp" style="color: #0099ff"> რეგისტრაცია </a>
                 <%
                     if (request.getAttribute("authorizationFailed") != null && request.getAttribute("authorizationFailed") == Boolean.TRUE) {
                         out.write("<p style=\"color:red;\">სახელი ან პაროლი არასწორია!<p>");

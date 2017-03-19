@@ -1,6 +1,7 @@
 .loginForm {
-    text-align: center;
-    margin-top: 70px;
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto
 }
 
 .registerForm {
@@ -22,15 +23,27 @@
     margin: auto;
     margin-top: 70px;  
 }
-
 .indexPageBody {
-    background-color :purple;
-    background-image: url(322.jpg); 
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: 250px
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    margin:auto;
+    margin-top:50px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-
+.indexPageBody input{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
 .TestTypeForm{
     text-align: center;
     border-style: solid;
