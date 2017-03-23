@@ -53,4 +53,22 @@
         <servlet-name>TestTypeServlet</servlet-name>
         <url-pattern>/TestTypeServlet</url-pattern>
     </servlet-mapping>
+     <servlet>
+        <servlet-name>CreateOneAnsTestServlet</servlet-name>
+        <servlet-class>ge.mziuri.test.servlet.CreateOneAnsTestServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>CreateOneAnsTestServlet</servlet-name>
+        <url-pattern>/CreateOneAnsTestServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CreateMultiAnsTestServlet</servlet-name>
+        <servlet-class>ge.mziuri.test.servlet.CreateMultiAnsTestServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>CreateMultiAnsTestServlet</servlet-name>
+        <url-pattern>/CreateMultiAnsTestServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

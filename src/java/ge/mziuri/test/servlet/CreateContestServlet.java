@@ -27,6 +27,7 @@ public class CreateContestServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String name = request.getParameter("name");
         String date = request.getParameter("date");
         String time = request.getParameter("time");
@@ -48,8 +49,8 @@ public class CreateContestServlet extends HttpServlet {
             contest.setTime(time1);
             ContestDAO contestDAO = new ContestDAOImpl();
             int id = contestDAO.addContest(contest);
-            Cookie cookie=new Cookie ("contest_id", "" + id);
-             response.addCookie(cookie);
+            Cookie cookie = new Cookie ("contest_id", "" + id);
+            response.addCookie(cookie);
         } catch (ParseException ex) {
             System.out.println(ex.getMessage());
         }

@@ -9,9 +9,9 @@ public class Test {
     private int id;
     private QuestionType type;
     private String question;
-    private List<String> answers = new ArrayList<String>();
-    private List<Integer> answerIndexes = new ArrayList<Integer>();
-    private List<String> openquestionanswer = new ArrayList<String>();
+    private List<String> answers = new ArrayList<>();
+    private List<Integer> answerIndexes = new ArrayList<>();
+    private List<String> openquestionanswer = new ArrayList<>();
     private int contestid;
     public int getId() {
         return id;

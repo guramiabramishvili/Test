@@ -37,14 +37,14 @@ public class TestDAOImpl implements TestDAO {
             }
             String correctAnswers = "";
             for (int i = 0; i < test.getAnswerIndexes().size(); i++) {
-                correctAnswers = correctAnswers + test.getAnswerIndexes().get(i) + SPLITTER;
+                correctAnswers = correctAnswers + test.getAnswerIndexes().get(i);
                 if (i != test.getAnswerIndexes().size() - 1) {
                     correctAnswers = correctAnswers + SPLITTER;
                 }
             }
             String openQuestionsAnswers = "";
             for (int i = 0; i < test.getOpenquestionanswer().size(); i++) {
-                openQuestionsAnswers = openQuestionsAnswers + test.getOpenquestionanswer().get(i) + SPLITTER;
+                openQuestionsAnswers = openQuestionsAnswers + test.getOpenquestionanswer().get(i);
                 if (i != test.getOpenquestionanswer().size() - 1) {
                     openQuestionsAnswers = openQuestionsAnswers + SPLITTER;
                 }

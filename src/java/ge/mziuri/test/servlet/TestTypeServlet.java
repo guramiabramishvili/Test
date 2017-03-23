@@ -17,6 +17,7 @@ public class TestTypeServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String type = request.getParameter("testType");
         Cookie TypeCookie = new Cookie("Type", "" + type);
         response.addCookie(TypeCookie);
@@ -32,6 +33,5 @@ public class TestTypeServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("CreateOpenTest.jsp");
             rd.forward(request, response);
         }
-        
     }
 }

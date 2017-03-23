@@ -12,20 +12,20 @@
         <title>რამდენიმე პასუხიანი ტესტი</title>
     </head>
     <body>
-        <form>
+        <form action="CreateMultiAnsTestServlet" method="post">
             <input type="text" style="width:800px; height:100px; font-size:20px" placeholder="შეიტანეთ კითხვა" name="question" /> <br> <br> 
-            <input type="checkbox" name="CorrectAns" value="Ans1" checked>
-            <input type="text" style="width:400px; height:50px;" placeholder="სავარაუდო პასუხი " name="Ans1" /> <br> <br> 
-            <input type="checkbox" name="CorrectAns" value="Ans2" >
-            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი "  name="Ans2" /> <br> <br> 
-            <input type="checkbox" name="CorrectAns" value="Ans3" >
-            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="Ans3" /> <br> <br> 
-            <input type="checkbox" name="CorrectAns" value="Ans4" >
-            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="Ans4" /> <br> <br> 
-            <input type="checkbox" name="CorrectAns" value="Ans5" >
-            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="Ans5" /> <br> <br> 
-            <input type="checkbox" name="CorrectAns" value="Ans6" >
-            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="Ans6" /> <br> <br>
+            <input type="checkbox" name="CorrectAns" value="1" checked>
+            <input type="text" style="width:400px; height:50px;" placeholder="სავარაუდო პასუხი " name="1" /> <br> <br> 
+            <input type="checkbox" name="CorrectAns" value="2" >
+            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი "  name="2" /> <br> <br> 
+            <input type="checkbox" name="CorrectAns" value="3" >
+            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="3" /> <br> <br> 
+            <input type="checkbox" name="CorrectAns" value="4" >
+            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="4" /> <br> <br> 
+            <input type="checkbox" name="CorrectAns" value="5" >
+            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="5" /> <br> <br> 
+            <input type="checkbox" name="CorrectAns" value="6" >
+            <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="6" /> <br> <br>
             <input type="submit" value="დამატება" />
         </form>
     </body>

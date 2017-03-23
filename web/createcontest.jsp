@@ -15,10 +15,10 @@
     <body>
         <div class="createcontestForm">
             <form action="CreateContestServlet" name="createcontestForm" method="post">>
-                სახელი       : <input type="text" name="name"/> <br>
-                თარიღი       : <input type="date" name="date"/> <br>
-                დრო          : <input type="time" name="time" /> <br>
-                ხანგრძლივობა  : <input type=number name="duration" /> <br>
+                სახელი       : <input type="text" name="name" value="test"> <br>
+                თარიღი       : <input type="date" name="date" value="2016-01-01"/> <br>
+                დრო          : <input type="time" name="time" value="00:00"/> <br>
+                ხანგრძლივობა  : <input type=number name="duration" value="20"/> <br>
                  
                 <input type=submit value="გაგრძელება" />
             </form>
