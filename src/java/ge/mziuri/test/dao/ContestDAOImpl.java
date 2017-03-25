@@ -32,6 +32,7 @@ public class ContestDAOImpl implements ContestDAO {
      
      
      
+     
     @Override
     public int addContest(Contest contest) {
       try {

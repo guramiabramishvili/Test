@@ -71,4 +71,13 @@
         <servlet-name>CreateMultiAnsTestServlet</servlet-name>
         <url-pattern>/CreateMultiAnsTestServlet</url-pattern>
     </servlet-mapping>
+        <servlet>
+        <servlet-name>CreateOpenTestServlet</servlet-name>
+        <servlet-class>ge.mziuri.test.servlet.CreateOpenTestServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>CreateOpenTestServlet</servlet-name>
+        <url-pattern>/CreateOpenTestServlet</url-pattern>
+    </servlet-mapping>
 </web-app>
