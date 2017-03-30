@@ -12,6 +12,12 @@
         <title>აირჩიეთ ტესტის ტიპი</title>
     </head>
     <body>
+        <%
+            if (request.getParameter("contestId") != null) {
+                Cookie cookie = new Cookie("contest_id",request.getParameter("contestId"));
+                response.addCookie(cookie);
+            }
+            %>
         <div class="TestTypeForm">
             <form action="TestTypeServlet" method="post">
                 <input type="radio" name="testType" value="oneAns" checked>ერთპასუხიანი ტესტი<br>
