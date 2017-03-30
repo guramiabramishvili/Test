@@ -17,6 +17,11 @@ public class Test {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "Test{" + "id=" + id + ", type=" + type + ", question=" + question + ", answers=" + answers + ", answerIndexes=" + answerIndexes + ", openquestionanswer=" + openquestionanswer + ", contestid=" + contestid + '}';
+    }
+
     public int getContestid() {
         return contestid;
     }

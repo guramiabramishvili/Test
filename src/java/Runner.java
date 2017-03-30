@@ -23,13 +23,13 @@ public class Runner {
 //        contest1.setName("IQTest");
 //        contest1.setTime(new Time(921341414));
 //        System.out.println(contestDAO.addContest(contest1));
-        TestDAO testDAO = new TestDAOImpl();
-        Test test = new Test();
-        test.setType(QuestionType.OPEN);
-        test.setContestid(2);
-        test.setQuestion("რა?");
-        testDAO.addTest(test);
-        UserDAO userDAO = new UserDAOImpl();
+//        TestDAO testDAO = new TestDAOImpl();
+//        Test test = new Test();
+//        test.setType(QuestionType.OPEN);
+//        test.setContestid(2);
+//        test.setQuestion("რა?");
+//        testDAO.addTest(test);
+//        UserDAO userDAO = new UserDAOImpl();
         //       User user = new User();
         //        user.setAdmin(true);
         //        user.setEmail("lortkipanidze77@gmail.com");
@@ -47,6 +47,9 @@ public class Runner {
         //        } catch (RegistrationException ex) {
         //           System.out.println("ასეთი მომხმარებელი უკვე არსებობს!");
         //        }
+        TestDAO testDao=new TestDAOImpl();
+        
+        System.out.println(testDao.getquestionbyContest_id(25));
 
     }
 }
