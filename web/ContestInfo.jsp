@@ -6,6 +6,8 @@
 
 
 
+<%@page import="ge.mziuri.test.dao.TestDAO"%>
+<%@page import="ge.mziuri.test.dao.TestDAOImpl"%>
 <%@page import="java.util.Date"%>
 <%@page import="ge.mziuri.test.dao.ContestDAOImpl"%>
 <%@page import="ge.mziuri.test.dao.ContestDAO"%>
@@ -24,22 +26,29 @@
                     Cookie cookie = new Cookie("contest_id", request.getParameter("contestId"));
                     response.addCookie(cookie);
                     ContestDAO contestDAO = new ContestDAOImpl();
-                    
-                        out.write(" კონტესტის სახელი " + contestDAO.getAllContest().get(ContestId).getName() + "<br>"
-                                + "კონტესტის დაწღების თარიღი " + contestDAO.getAllContest().get(ContestId).getDate() + "<br>"
-                                + "კონტესტის დაწყების დრო " + contestDAO.getAllContest().get(ContestId).getTime() + "<br>"
-                                + "კონტესტის ხანგრძლივობა " + contestDAO.getAllContest().get(ContestId).getDuration()/60 +"  წუთი"+ "<br> <br>"
+                     TestDAO testDAO = new TestDAOImpl();
+                        out.write(" კონტესტის სახელი " + contestDAO.getAllContest(true).get(ContestId).getName() + "<br>"
+                                + "კონტესტის დაწღების თარიღი " + contestDAO.getAllContest(true).get(ContestId).getDate() + "<br>"
+                                + "კონტესტის დაწყების დრო " + contestDAO.getAllContest(true).get(ContestId).getTime() + "<br>"
+                                + "კონტესტის ხანგრძლივობა " + contestDAO.getAllContest(true).get(ContestId).getDuration()/60 +"  წუთი"+ "<br> <br>"
                                 );
-                        if((contestDAO.getAllContest().get(ContestId).getDate().getTime()/1000)<=(new Date().getTime()/1000) &&
-                       (new Date().getTime()/1000)<(contestDAO.getAllContest().get(ContestId).getDate().getTime()/1000+contestDAO.getAllContest().get(ContestId).getDuration()/1000)){
-                                                  
-                            out.write("<a href=\"StartContest.jsp?contestId=" + ContestId +"\">" + "კონტესტის დაწყება" + "</a> <br>");
+                        if((contestDAO.getAllContest(true).get(ContestId).getDate().getTime()/1000)<=(new Date().getTime()/1000) &&
+                       (new Date().getTime()/1000)<(contestDAO.getAllContest(true).get(ContestId).getDate().getTime()/1000+contestDAO.getAllContest(true).get(ContestId).getDuration()/1000)){
+                               if((testDAO.getquestionbyContest_id(ContestId).get(1).getType().name().equals("SINGLE_ANSWER")==true)){                   
+                            out.write("<a href=\"OneAnsTest.jsp?contestId=" + ContestId +"\">" + "კონტესტის დაწყება" + "</a> <br>");
                         }
-                        
-                        else if( (new Date().getTime()/1000) > (contestDAO.getAllContest().get(ContestId).getDate().getTime() / 1000 + contestDAO.getAllContest().get(ContestId).getDuration()/1000))
+                                       if((testDAO.getquestionbyContest_id(ContestId).get(1).getType().name().equals("OPEN")==true)){                   
+                            out.write("<a href=\"OpenAnsTest.jsp?contestId=" + ContestId +"\">" + "კონტესტის დაწყება" + "</a> <br>");
+                        }
+                                               if((testDAO.getquestionbyContest_id(ContestId).get(1).getType().name().equals("MULTIPLE_ANSWER")==true)){                   
+                            out.write("<a href=\"MultiAnsTest.jsp?contestId=" + ContestId +"\">" + "კონტესტის დაწყება" + "</a> <br>");
+                        }
+                                               
+                        }
+                        else if( (new Date().getTime()/1000) > (contestDAO.getAllContest(true).get(ContestId).getDate().getTime() / 1000 + contestDAO.getAllContest(true).get(ContestId).getDuration()/1000))
                             out.write("კონტესტი დამთავრებულია!");
                         
-                        else if( (new Date().getTime()/1000) < (contestDAO.getAllContest().get(ContestId).getDate().getTime()) / 1000 ) 
+                        else if( (new Date().getTime()/1000) < (contestDAO.getAllContest(true).get(ContestId).getDate().getTime()) / 1000 ) 
                             out.write("კონტესტი ჯერ არ დაწყებულა");
                 }
             %>

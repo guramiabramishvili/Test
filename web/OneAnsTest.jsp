@@ -13,7 +13,13 @@
     </head>
     <body>
         <form action="CreateOneAnsTestServlet" method="post">
-            <input type="text" style="width:800px; height:100px; font-size:20px" placeholder="შეიტანეთ კითხვა" name="question" /> <br> <br> 
+              <%
+                  
+                  out.write()
+                  %>
+                      
+            
+<!--            <input type="text" style="width:800px; height:100px; font-size:20px" placeholder="შეიტანეთ კითხვა" name="question" /> <br> <br> 
             <input type="radio" name="CorrectAns" value="1" checked>
             <input type="text" style="width:400px; height:50px;" placeholder="სავარაუდო პასუხი " name="1" /> <br> <br> 
             <input type="radio" name="CorrectAns" value="2" >
@@ -26,7 +32,7 @@
             <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="5" /> <br> <br> 
             <input type="radio" name="CorrectAns" value="6" >
             <input type="text" style="width:400px; height:50px; " placeholder="სავარაუდო პასუხი(არა სავალდებულო) " name="6" /> <br> <br>
-            <input type="submit" value="გაგრძელება" />
+            <input type="submit" value="გაგრძელება" />-->
         </form>
     </body>
 </html>

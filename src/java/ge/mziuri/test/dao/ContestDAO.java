@@ -9,8 +9,9 @@ import java.util.List;
 
 
 public interface ContestDAO {
-   List <Contest> getAllContest ();
+   List <Contest> getAllContest (boolean active);
    int addContest (Contest contest);
+   
  //  void getcontesetbyid (Integer contesetid);
  
    

@@ -18,6 +18,7 @@
                 TestDAO testDAO = new TestDAOImpl();
                 RequestDispatcher rd = request.getRequestDispatcher("jsp");
                 for (int i = 0; i < contestDAO.getAllContest().size(); i++) {
+                    if (contestDAO.getAllContest().get(i).getDate())
                     out.write("<a href=\"ContestInfo.jsp?contestId=" + i + "\">" + i + ")"
                             + contestDAO.getAllContest().get(i).getName() + "</a> <br>");
                }

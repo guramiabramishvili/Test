@@ -51,10 +51,20 @@ public class ContestDAOImpl implements ContestDAO {
     }
     
     @Override
-    public List<Contest> getAllContest() {
+    public List<Contest> getAllContest(boolean active) {
         List<Contest> contests = new ArrayList<>();
         try {
-            pstmt = con.prepareStatement("SELECT * FROM contest");
+            String sql = "SELECT * FROM contest ";
+            if (active) {
+                sql += "WHERE opendate >= ? AND opentime >= ?";
+            }
+            pstmt = con.prepareStatement(sql);
+            if (active) {
+                Date date = new Date(new java.util.Date().getTime());
+                Time time = new Time(new java.util.Date().getTime());
+                pstmt.setDate(1, date);
+                pstmt.setTime(2, time);
+            }
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");
