@@ -1,20 +1,4 @@
-
-import ge.mziuri.test.dao.ContestDAO;
-import ge.mziuri.test.dao.ContestDAOImpl;
-import ge.mziuri.test.dao.TestDAO;
-import ge.mziuri.test.dao.TestDAOImpl;
-import ge.mziuri.test.dao.UserDAO;
-import ge.mziuri.test.dao.UserDAOImpl;
-import ge.mziuri.test.exceptions.RegistrationException;
-import ge.mziuri.test.model.Contest;
-import ge.mziuri.test.model.QuestionType;
-import ge.mziuri.test.model.Test;
-import ge.mziuri.test.model.User;
-import java.sql.Date;
-import java.sql.Time;
-
 public class Runner {
-
     public static void main(String[] args) {
 //        ContestDAO contestDAO = new ContestDAOImpl();
 //        Contest contest1 = new Contest();
@@ -47,9 +31,9 @@ public class Runner {
         //        } catch (RegistrationException ex) {
         //           System.out.println("ასეთი მომხმარებელი უკვე არსებობს!");
         //        }
-        TestDAO testDao=new TestDAOImpl();
+       //  TestDAO testDao=new TestDAOImpl();
         
-        System.out.println(testDao.getquestionbyContest_id(25));
+   //      System.out.println(testDao.getquestionbyContest_id(25));
 
     }
 }

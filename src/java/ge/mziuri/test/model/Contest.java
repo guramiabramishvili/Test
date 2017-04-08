@@ -10,7 +10,6 @@ import java.util.List;
 
 
 public class Contest implements Serializable {
-    
     private int id;
     private String name;
     private Date date;

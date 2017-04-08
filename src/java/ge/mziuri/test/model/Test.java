@@ -4,8 +4,7 @@ package ge.mziuri.test.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
-    
+public class Test { 
     private int id;
     private QuestionType type;
     private String question;

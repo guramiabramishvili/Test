@@ -1,22 +1,25 @@
+<%@page import="ge.mziuri.test.dao.UserDAOImpl"%>
+<%@page import="ge.mziuri.test.dao.UserDAO"%>
+<%@page import="ge.mziuri.test.model.User"%>
 <%@page import="ge.mziuri.test.dao.ContestDAOImpl"%>
 <%@page import="ge.mziuri.test.dao.ContestDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>     
+    
         <link rel="stylesheet" type="text/css" href="public/css/adminhomecss.css">
         <title> admin </title>
         <meta charset="UTF-8">
     </head>
-    <body>  
-        <div class="headline">მოგესალმებით</div>
-        <div class="createdcontests">
+    <body class="adminhomebody">  
+        <div class="headline">მოგესალმებით ლუკა !</div>
+        <div class="existingcontests">
             <font size="3">შექმნილი კონტესტები: <br>
             <%
                 ContestDAO contestDAO = new ContestDAOImpl();
                 for (int i = 0; i < contestDAO.getAllContest().size(); i++) {
                     out.write("<a href=\"TestType.jsp?contestId=" + i + "\">" + (i + 1) + ")"
-                            + contestDAO.getAllContest().get(i).getName() + "</a> <br>");
+                            + contestDAO.getAllContest().get(i).getName() + " - დაწყების დრო  " + contestDAO.getAllContest().get(i).getDate() + "  " 
+                            +contestDAO.getAllContest().get(i).getTime() + "</a> <br>");
                 }
             %>
         </div>
@@ -30,4 +33,3 @@
             </form>
         </div>
     </body>
-</html>
