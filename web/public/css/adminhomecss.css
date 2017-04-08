@@ -10,11 +10,11 @@
 }
 .existingcontests {
   background: #FFFFFF;
-  max-width: 400px;
+  max-width: 500px;
   padding-top: 25px;
   padding-bottom: 25px;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.25);
   float:left;
