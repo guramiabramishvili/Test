@@ -56,14 +56,16 @@ public class ContestDAOImpl implements ContestDAO {
         try {
             String sql = "SELECT * FROM contest ";
             if (active) {
-                sql += "WHERE opendate >= ? AND opentime >= ?";
+                sql += "WHERE opendate >= ? OR (opendate = ? AND opentime >= ?)";
             }
             pstmt = con.prepareStatement(sql);
             if (active) {
-                Date date = new Date(new java.util.Date().getTime());
-                Time time = new Time(new java.util.Date().getTime());
+                java.util.Date currDate = new java.util.Date();
+                Date date = new Date(currDate.getYear(), currDate.getMonth(), currDate.getDate());
+                Time time = new Time(currDate.getHours(), currDate.getMinutes(), currDate.getSeconds());
                 pstmt.setDate(1, date);
-                pstmt.setTime(2, time);
+                pstmt.setDate(2, date);
+                pstmt.setTime(3, time);
             }
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {

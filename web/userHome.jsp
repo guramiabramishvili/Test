@@ -1,3 +1,5 @@
+<%@page import="ge.mziuri.test.model.Contest"%>
+<%@page import="java.util.List"%>
 <%@page import="ge.mziuri.test.dao.TestDAOImpl"%>
 <%@page import="ge.mziuri.test.dao.TestDAO"%>
 <%@page import="ge.mziuri.test.dao.ContestDAOImpl"%>
@@ -17,10 +19,10 @@
                 ContestDAO contestDAO = new ContestDAOImpl();
                 TestDAO testDAO = new TestDAOImpl();
                 RequestDispatcher rd = request.getRequestDispatcher("jsp");
-                for (int i = 0; i < contestDAO.getAllContest().size(); i++) {
-                    if (contestDAO.getAllContest().get(i).getDate())
-                    out.write("<a href=\"ContestInfo.jsp?contestId=" + i + "\">" + i + ")"
-                            + contestDAO.getAllContest().get(i).getName() + "</a> <br>");
+                List<Contest> contests = contestDAO.getAllContest(true);
+                for (int i = 0; i < contests.size(); i++) {
+                    out.write("<a href=\"ContestInfo.jsp?contestId=" + contests.get(i).getId()+ "\">" + i + ")"
+                            + contests.get(i).getName() + "</a> <br>");
                }
             %>
 

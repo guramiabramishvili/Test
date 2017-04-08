@@ -37,7 +37,7 @@ public class CreateContestServlet extends HttpServlet {
             Contest contest = new Contest();
             contest.setName(name);
             System.out.println(date);
-            DateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             System.out.println(formatter.parse(date).getMonth());
             System.out.println(formatter.parse(date).getHours());
             System.out.println(formatter.parse(date).getMinutes());

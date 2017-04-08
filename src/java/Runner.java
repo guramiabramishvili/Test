@@ -16,8 +16,8 @@ import java.sql.Time;
 public class Runner {
 
     public static void main(String[] args) {
-      ContestDAO contestDAO = new ContestDAOImpl();
-        System.out.println(contestDAO.getAllContest(false));
+//      ContestDAO contestDAO = new ContestDAOImpl();
+//        System.out.println(contestDAO.getAllContest(false));
 //        Contest contest1 = new Contest();
 //        contest1.setDate(new Date(31536));
 //        contest1.setDuration(12);
