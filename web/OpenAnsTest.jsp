@@ -1,9 +1,3 @@
-<%-- 
-    Document   : OpenAnsTest
-    Created on : Mar 30, 2017, 5:18:06 PM
-    Author     : User
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -50,7 +50,7 @@ public class Runner {
         //        }
 //        TestDAO testDao=new TestDAOImpl();
 //        
-//        System.out.println(testDao.getquestionbyContest_id(25));
+//        System.out.println(testDao.getQuestionByContestId(25));
 
     }
 }

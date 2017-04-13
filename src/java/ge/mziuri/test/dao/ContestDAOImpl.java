@@ -1,4 +1,3 @@
-
 package ge.mziuri.test.dao;
 
 import ge.mziuri.test.metainfo.DatabaseMetaInfo;
@@ -13,29 +12,24 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class ContestDAOImpl implements ContestDAO {
-   private Connection con;
+
+    private Connection con;
 
     private PreparedStatement pstmt;
-    
-    
-    
-     public ContestDAOImpl() {
-         try {
+
+    public ContestDAOImpl() {
+        try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(DatabaseMetaInfo.databaseURL, DatabaseMetaInfo.username, DatabaseMetaInfo.passsword);
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
-     
-     
-     
-     
+
     @Override
     public int addContest(Contest contest) {
-      try {
+        try {
             pstmt = con.prepareStatement("INSERT INTO contest (name,opendate,opentime,duration) VALUES (?,?,?,?) RETURNING id");
             pstmt.setString(1, contest.getName());
             pstmt.setDate(2, contest.getDate());
@@ -47,9 +41,9 @@ public class ContestDAOImpl implements ContestDAO {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-      return -1;
+        return -1;
     }
-    
+
     @Override
     public List<Contest> getAllContest(boolean active) {
         List<Contest> contests = new ArrayList<>();
@@ -73,15 +67,15 @@ public class ContestDAOImpl implements ContestDAO {
                 String name = rs.getString("name");
                 Date date = rs.getDate("opendate");
                 Time time = rs.getTime("opentime");
-                int duration=rs.getInt("duration");
-                
+                int duration = rs.getInt("duration");
+
                 Contest contest = new Contest();
                 contest.setDate(date);
                 contest.setDuration(duration);
                 contest.setId(id);
                 contest.setName(name);
                 contest.setTime(time);
-                  
+
                 contests.add(contest);
             }
         } catch (SQLException ex) {
@@ -89,7 +83,35 @@ public class ContestDAOImpl implements ContestDAO {
         }
         return contests;
     }
-    
-    }
-    
 
+    @Override
+    public Contest getContestbyId(int id) {
+        Contest contest = null;
+        try {
+            String sql = "SELECT * FROM contest Where id=? ";
+            pstmt = con.prepareStatement(sql);
+
+            pstmt.setInt(1, id);
+
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+
+                String name = rs.getString("name");
+                Date date = rs.getDate("opendate");
+                Time time = rs.getTime("opentime");
+                int duration = rs.getInt("duration");
+                contest =new Contest();
+                contest.setDate(date);
+                contest.setDuration(duration);
+                contest.setId(id);
+                contest.setName(name);
+                contest.setTime(time);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return contest;
+    }
+
+}

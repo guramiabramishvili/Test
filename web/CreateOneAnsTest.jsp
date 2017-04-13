@@ -1,9 +1,3 @@
-<%-- 
-    Document   : CreateOneAnsTest
-    Created on : Mar 18, 2017, 2:53:20 PM
-    Author     : User
---%>
-
 <%@page import="ge.mziuri.test.dao.ContestDAOImpl"%>
 <%@page import="ge.mziuri.test.dao.ContestDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

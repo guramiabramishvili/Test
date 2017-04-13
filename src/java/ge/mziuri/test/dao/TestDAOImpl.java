@@ -1,11 +1,8 @@
 package ge.mziuri.test.dao;
 
-import ge.mziuri.test.exceptions.ContestException;
 import ge.mziuri.test.metainfo.DatabaseMetaInfo;
-import ge.mziuri.test.model.Contest;
 import ge.mziuri.test.model.QuestionType;
 import ge.mziuri.test.model.Test;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -71,7 +68,7 @@ public class TestDAOImpl implements TestDAO {
     }
 
     @Override
-    public List<Test> getquestionbyContest_id(Integer contestId)  {
+    public List<Test> getQuestionByContestId(Integer contestId)  {
         List<Test> tests = new ArrayList<>();
         
         try {
@@ -94,7 +91,9 @@ public class TestDAOImpl implements TestDAO {
                 String correctAnswerIndexesString = rs.getString("correct_answer_indexes");
                 List<Integer> answerIndexes  = new ArrayList<>();
                 for (String part : correctAnswerIndexesString.split(SPLITTER)) {
-                    answerIndexes.add(Integer.parseInt(part));
+                    if (part != null && !part.isEmpty()) {
+                        answerIndexes.add(Integer.parseInt(part));
+                    }
                 }
                 test.setAnswerIndexes(answerIndexes);
                 tests.add(test);
@@ -103,7 +102,5 @@ public class TestDAOImpl implements TestDAO {
             System.out.println(ex.getMessage());
         }
         return tests;
-
     }
-
 }

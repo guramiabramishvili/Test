@@ -17,7 +17,7 @@
         <div >
                     <font size="3">შექმნილი კონტესტები:</font> <br>
                     <%
-                         ContestDAO contestDAO = new ContestDAOImpl();
+                ContestDAO contestDAO = new ContestDAOImpl();
                 TestDAO testDAO = new TestDAOImpl();
                 RequestDispatcher rd = request.getRequestDispatcher("jsp");
                 List<Contest> contests = contestDAO.getAllContest(true);

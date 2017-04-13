@@ -1,9 +1,3 @@
-<%-- 
-    Document   : TestType
-    Created on : Mar 15, 2017, 3:32:17 PM
-    Author     : lortkipanidze
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

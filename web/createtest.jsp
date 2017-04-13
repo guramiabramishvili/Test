@@ -1,9 +1,3 @@
-<%-- 
-    Document   : createtest
-    Created on : Mar 11, 2017, 3:42:15 PM
-    Author     : User
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

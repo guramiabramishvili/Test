@@ -1,9 +1,3 @@
-<%-- 
-    Document   : createcontest
-    Created on : Mar 11, 2017, 3:43:01 PM
-    Author     : User
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

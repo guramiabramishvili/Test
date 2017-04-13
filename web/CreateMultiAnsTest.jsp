@@ -1,9 +1,3 @@
-<%-- 
-    Document   : CreateMultiAnsTest
-    Created on : Mar 18, 2017, 2:53:42 PM
-    Author     : User
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
