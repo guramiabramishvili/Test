@@ -34,24 +34,18 @@
                 }
                 List<Test> test = testDAO.getQuestionByContestId(contestid);
                 String question = test.get(questionNumber).getQuestion();
+                %>
+            <input type="text" style="width:800px; height:100px; font-size:20px"  value="<%=question%>"   name="question" /> <br> <br> 
+            <%
+                List<String> answers=test.get(questionNumber).getAnswers();
+                
+                for(int i=0;i<answers.size();i++){
+                  out.write("<input type=\"radio\" name=\"CorrectAns\" value=\"" + i + "\" >");
+                  out.write("<input type=\"text\" style=\"width:400px; height:50px;\"  name=\"" + i + "\" value=\"" + answers.get(i) + "\" /> <br> <br> ");
+                }
 
             %>
-
-
-            <input type="text" style="width:800px; height:100px; font-size:20px"  value="<%=question%>"   name="question" /> <br> <br> 
-            <input type="radio" name="CorrectAns" value="1" checked>
-            <input type="text" style="width:400px; height:50px;"  name="1" /> <br> <br> 
-            <input type="radio" name="CorrectAns" value="2" >
-            <input type="text" style="width:400px; height:50px; "   name="2" /> <br> <br> 
-            <input type="radio" name="CorrectAns" value="3" >
-            <input type="text" style="width:400px; height:50px; "  name="3" /> <br> <br> 
-            <input type="radio" name="CorrectAns" value="4" >
-            <input type="text" style="width:400px; height:50px; "  name="4" /> <br> <br> 
-            <input type="radio" name="CorrectAns" value="5" >
-            <input type="text" style="width:400px; height:50px; " name="5" /> <br> <br> 
-            <input type="radio" name="CorrectAns" value="6" >
-            <input type="text" style="width:400px; height:50px; "  name="6" /> <br> <br>
-            <input type="submit" value="გაგრძელება" />
+              <input type="submit" value="გაგძელება" />
         </form>
     </body>
 </html>

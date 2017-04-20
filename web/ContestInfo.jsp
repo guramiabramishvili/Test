@@ -53,7 +53,7 @@
                     } else if ((new Date().getTime() / 1000) > (contest.getDate().getTime() / 1000 + contest.getDuration() / 1000)) {
                         out.write("კონტესტი დამთავრებულია!");
                     } else if ((new Date().getTime() / 1000) < (contest.getDate().getTime()) / 1000) {
-                        out.write("კონტესტი ჯერ არ დაწყებულა");
+                        out.write("კონტესტი ჯერ  არ დაწყებულა");
                     }
                 }
             %>
