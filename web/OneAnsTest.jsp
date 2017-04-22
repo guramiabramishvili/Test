@@ -1,8 +1,6 @@
 <%@page import="ge.mziuri.test.model.Test"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.List"%>
-<%@page import="ge.mziuri.test.dao.TestDAO"%>
 <%@page import="ge.mziuri.test.dao.TestDAO"%>
 <%@page import="ge.mziuri.test.dao.TestDAOImpl"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,7 +11,7 @@
         <title>ერთ პასუხიანი ტესტი</title>
     </head>
     <body>
-        <form action="CreateOneAnsTestServlet" method="post">
+        <form action="OneAnsTestServlet" method="post">
             <%
                 TestDAO testDAO = new TestDAOImpl();
 
@@ -32,12 +30,14 @@
                         }
                     }
                 }
-                List<Test> test = testDAO.getQuestionByContestId(contestid);
-                String question = test.get(questionNumber).getQuestion();
+                List<Test> tests = testDAO.getQuestionByContestId(contestid);
+                String question = tests.get(questionNumber).getQuestion();
                 %>
+                                
             <input type="text" style="width:800px; height:100px; font-size:20px"  value="<%=question%>"   name="question" /> <br> <br> 
+            
             <%
-                List<String> answers=test.get(questionNumber).getAnswers();
+                List<String> answers=tests.get(questionNumber).getAnswers();
                 
                 for(int i=0;i<answers.size();i++){
                   out.write("<input type=\"radio\" name=\"CorrectAns\" value=\"" + i + "\" >");

@@ -80,4 +80,13 @@
         <servlet-name>CreateOpenTestServlet</servlet-name>
         <url-pattern>/CreateOpenTestServlet</url-pattern>
     </servlet-mapping>
+       <servlet>
+        <servlet-name>OneAnsTestServlet</servlet-name>
+        <servlet-class>ge.mziuri.test.servlet.OneAnsTestServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>OneAnsTestServlet</servlet-name>
+        <url-pattern>/OneAnsTestServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

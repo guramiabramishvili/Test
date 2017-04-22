@@ -25,10 +25,10 @@
             <%
                 if (request.getParameter("contestId") != null) {
                     int ContestId = Integer.parseInt(request.getParameter("contestId"));
-                    Cookie cookie = new Cookie("contest_id", request.getParameter("contestId"));
-                    response.addCookie(cookie);
-                    Cookie cookie1 = new Cookie("TestNumber", "1");
-                    response.addCookie(cookie1);
+                    Cookie ContestIdCookie = new Cookie("contest_id", request.getParameter("contestId"));
+                    response.addCookie(ContestIdCookie);
+                    Cookie TestNumberCookie = new Cookie("TestNumber", "0");
+                    response.addCookie(TestNumberCookie);
                     ContestDAO contestDAO = new ContestDAOImpl();
                     TestDAO testDAO = new TestDAOImpl();
                     Contest contest = contestDAO.getContestbyId(ContestId);

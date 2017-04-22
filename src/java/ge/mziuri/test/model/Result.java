@@ -1,13 +1,11 @@
-
 package ge.mziuri.test.model;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Result {
+
     private User user;
-    private Contest contest;    
-    private List<List<String>> myAnswers = new ArrayList<>();
+    private Contest contest;
     private int point;
 
     public User getUser() {
@@ -24,14 +22,6 @@ public class Result {
 
     public void setContest(Contest contest) {
         this.contest = contest;
-    }
-
-    public List<List<String>> getMyAnswers() {
-        return myAnswers;
-    }
-
-    public void setMyAnswers(List<List<String>> myAnswers) {
-        this.myAnswers = myAnswers;
     }
 
     public int getPoint() {

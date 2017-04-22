@@ -10,4 +10,5 @@ public interface UserDAO {
     
     void addUser(User user) throws RegistrationException;
     User getUser (String username,String password);
+    User getUserbyID (int id);
 }
