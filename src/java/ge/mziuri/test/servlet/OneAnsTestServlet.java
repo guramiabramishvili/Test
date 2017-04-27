@@ -23,12 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 public class OneAnsTestServlet extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) {
-
-    }
-
-    @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         TestDAO testDAO = new TestDAOImpl();
         ContestDAO contestDAO = new ContestDAOImpl();
@@ -44,44 +39,44 @@ public class OneAnsTestServlet extends HttpServlet {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("contest_id")) {
                     contestid = Integer.parseInt(cookie.getValue());
+                    break;
                 }
             }
             for (Cookie cookie1 : cookies) {
                 if (cookie1.getName().equals("TestNumber")) {
                     questionNumber = Integer.parseInt(cookie1.getValue());
+                    break;
                 }
             }
             for (Cookie cookie2 : cookies) {
                 if (cookie2.getName().equals("UserId")) {
                     UserId = Integer.parseInt(cookie2.getValue());
+                    break;
                 }
             }
             for (Cookie cookie3 : cookies) {
                 if (cookie3.getName().equals("Points")) {
                     points = Integer.parseInt(cookie3.getValue());
+                    break;
                 }
             }
         }
-        int correctanswer = Integer.parseInt(request.getParameter("CorrectAns"));
         List<Test> tests = testDAO.getQuestionByContestId(contestid);
         Test test = tests.get(questionNumber);
-
-        if (test.getAnswerIndexes().get(0) == correctanswer) {
-            points++;
+        try {
+            int answer = Integer.parseInt(request.getParameter("answer"));
+            if (test.getAnswerIndexes().get(0) == answer) {
+                points++;
+            }
+        } catch (Exception ignore) {
         }
 
-        if (tests.size() == questionNumber) {
-            result.setContest(contestDAO.getContestbyId(contestid));
-            result.setUser(userDAO.getUserbyID(UserId));
-            result.setPoint(points);
-            resultDAO.addResult(result);
-        }
-        int NextQuestion;
-        NextQuestion = questionNumber + 1;
+        int nextQuestion = questionNumber + 1;
         Cookie PointsCookie = new Cookie("Points", "" + points);
-        Cookie TestNumberCookie = new Cookie("TestNumber", "" + NextQuestion );
+        Cookie TestNumberCookie = new Cookie("TestNumber", "" + nextQuestion);
         response.addCookie(PointsCookie);
         response.addCookie(TestNumberCookie);
+        response.resetBuffer();
         QuestionType NextQuestionType = tests.get(questionNumber + 1).getType();
         if (NextQuestionType.name().equals("SINGLE_ANSWER")) {
             RequestDispatcher rd = request.getRequestDispatcher("OneAnsTest.jsp");
@@ -95,6 +90,18 @@ public class OneAnsTestServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("OpenAnsTest.jsp");
             rd.forward(request, response);
         }
+        if (tests.size() == questionNumber) {
+            result.setContest(contestDAO.getContestbyId(contestid));
+            result.setUser(userDAO.getUserbyID(UserId));
+            result.setPoint(points);
+            resultDAO.addResult(result);
+            RequestDispatcher rd = request.getRequestDispatcher("userHome.jsp");
+            rd.forward(request, response);
+        }
+    }
+
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) {
 
     }
 

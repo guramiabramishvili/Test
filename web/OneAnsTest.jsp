@@ -11,7 +11,7 @@
         <title>ერთ პასუხიანი ტესტი</title>
     </head>
     <body>
-        <form action="OneAnsTestServlet" method="post">
+        <form action="OneAnsTestServlet" method="get">
             <%
                 TestDAO testDAO = new TestDAOImpl();
 
@@ -34,13 +34,13 @@
                 String question = tests.get(questionNumber).getQuestion();
                 %>
                                 
-            <input type="text" style="width:800px; height:100px; font-size:20px"  value="<%=question%>"   name="question" /> <br> <br> 
+            <input  style="width:800px; height:100px; font-size:20px"  value="<%=question%>"   name="question" /> <br> <br> 
             
             <%
                 List<String> answers=tests.get(questionNumber).getAnswers();
                 
                 for(int i=0;i<answers.size();i++){
-                  out.write("<input type=\"radio\" name=\"CorrectAns\" value=\"" + i + "\" >");
+                  out.write("<input type=\"radio\" name=\"answer\" value=\"" + i + "\" >");
                   out.write("<input type=\"text\" style=\"width:400px; height:50px;\"  name=\"" + i + "\" value=\"" + answers.get(i) + "\" /> <br> <br> ");
                 }
 

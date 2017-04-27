@@ -41,13 +41,13 @@
                     if (/*(contest.getDate().getTime() / 1000) <= (new Date().getTime() / 1000)
                             &&*/ (new Date().getTime() / 1000) < (contest.getDate().getTime() / 1000 + contest.getDuration() / 1000)) {
                         if ((firsttest.getType().name().equals("SINGLE_ANSWER") == true)) {
-                            out.write("<a href=\"OneAnsTest.jsp?contestId=" + ContestId + "\">" + "კონტესტის დაწყება" + "</a> <br>");
+                            out.write("<a href=\"OneAnsTestServlet\">" + "კონტესტის დაწყება" + "</a> <br>");
                         }
                         if ((firsttest.getType().name().equals("OPEN") == true)) {
-                            out.write("<a href=\"OpenAnsTest.jsp?contestId=" + ContestId + "\">" + "კონტესტის დაწყება" + "</a> <br>");
+                            out.write("<a href=\"OpenAnsTestServlet\">" + "კონტესტის დაწყება" + "</a> <br>");
                         }
                         if ((firsttest.getType().name().equals("MULTIPLE_ANSWER") == true)) {
-                            out.write("<a href=\"MultiAnsTest.jsp?contestId=" + ContestId + "\">" + "კონტესტის დაწყება" + "</a> <br>");
+                            out.write("<a href=\"MultiAnsTestServlet\">" + "კონტესტის დაწყება" + "</a> <br>");
                         }
 
                     } else if ((new Date().getTime() / 1000) > (contest.getDate().getTime() / 1000 + contest.getDuration() / 1000)) {
