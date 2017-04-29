@@ -40,6 +40,10 @@ public class ContestDAOImpl implements ContestDAO {
             return rs.getInt(1);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
         return -1;
     }
@@ -80,6 +84,10 @@ public class ContestDAOImpl implements ContestDAO {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
         return contests;
     }
@@ -110,6 +118,10 @@ public class ContestDAOImpl implements ContestDAO {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
         return contest;
     }

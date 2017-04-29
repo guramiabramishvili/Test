@@ -64,6 +64,10 @@ public class TestDAOImpl implements TestDAO {
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
     }
 
@@ -100,6 +104,10 @@ public class TestDAOImpl implements TestDAO {
             }            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
         return tests;
     }

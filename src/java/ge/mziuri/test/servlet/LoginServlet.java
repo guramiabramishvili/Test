@@ -38,6 +38,7 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
             int UserId = user.getId();
             Cookie UserCookie = new Cookie("UserId", "" + UserId);
+            response.addCookie(UserCookie);
             rd.forward(request, response);
 
         } else {

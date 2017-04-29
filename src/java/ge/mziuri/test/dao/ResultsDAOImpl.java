@@ -1,4 +1,3 @@
-
 package ge.mziuri.test.dao;
 
 import ge.mziuri.test.metainfo.DatabaseMetaInfo;
@@ -6,7 +5,6 @@ import ge.mziuri.test.model.Result;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ResultsDAOImpl implements ResultsDAO {
@@ -22,6 +20,7 @@ public class ResultsDAOImpl implements ResultsDAO {
             System.out.println(ex.getMessage());
         }
     }
+    
     @Override
     public Void addResult(Result result) {
          try {
@@ -32,6 +31,10 @@ public class ResultsDAOImpl implements ResultsDAO {
           
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
        return null;
     }
