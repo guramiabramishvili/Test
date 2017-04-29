@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,16 +29,21 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
         PrintWriter pw = response.getWriter();
+
         if (user == null) {
             request.setAttribute("authorizationFailed", true);
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else if (user.isAdmin() == true) {
             RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
+            int UserId = user.getId();
+            Cookie UserCookie = new Cookie("UserId", "" + UserId);
+            response.addCookie(UserCookie);
             rd.forward(request, response);
+
         } else {
             RequestDispatcher rd = request.getRequestDispatcher("userHome.jsp");
             rd.forward(request, response);
-        }       
+        }
     }
 }

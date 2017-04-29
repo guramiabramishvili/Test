@@ -11,12 +11,26 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<link rel="stylesheet" type="text/css" href="public/css/adminhomecss.css">
+<link rel="stylesheet" type="text/css" href="public/css/adminhome.css">
 <title> admin </title>
 <meta charset="UTF-8">
 </head>
-<body class="adminhomebody">  
-    <div class="headline">მოგესალმებით ლუკა !</div>
+<body class="adminhomebody"> 
+    <%
+        Cookie[] cookies = request.getCookies();
+        String username=null;
+        int userid=0;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("UserId")){
+                    userid=Integer.parseInt(cookie.getValue());
+                }
+            }
+        }
+        UserDAO userDAO=new UserDAOImpl();
+        username=userDAO.getUserbyID(userid).getUsername();
+        %>
+        <div class="headline">მოგესალმებით <% out.write(username); %>!</div>
     <div class="existingcontests">
         <font size="5">შექმნილი კონტესტები: <br>
         <%

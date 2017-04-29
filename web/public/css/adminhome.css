@@ -11,6 +11,7 @@
 .existingcontests {
   background: #FFFFFF;
   max-width: 500px;
+  margin-top:20px;
   padding-top: 25px;
   padding-bottom: 25px;
   padding-left: 50px;
@@ -20,6 +21,7 @@
   float:left;
 }
 .createcontestForm{
+  margin-top:20px;
   background: #FFFFFF;
   padding-top: 30px;
   padding-bottom: 30px;

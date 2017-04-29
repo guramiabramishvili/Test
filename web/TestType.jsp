@@ -8,26 +8,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="public/css/TestType.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>აირჩიეთ ტესტის ტიპი</title>
     </head>
-    <body>
-        <%
-            if (request.getParameter("contestId") != null) {
-                Cookie cookie = new Cookie("contest_id",request.getParameter("contestId"));
-                response.addCookie(cookie);
-            }
-            %>
-        <div class="TestTypeForm">
-            <form action="TestTypeServlet" method="post">
-                <input type="radio" name="testType" value="oneAns" checked>ერთპასუხიანი ტესტი<br>
-                <input type="radio" name="testType" value="multiAns">რამდენიმეპასუხიანი ტესტი<br>
-                <input type="radio" name="testType" value="open">ღია შეკითხვა<br>
-                <input type="submit" value="გაგრძელება" />
-                <a href="adminHome.jsp">მთავარ გვერდზე დაბრუნება</a>
+    <body class=TestTypeBody>
+        <div class="TestTypeDiv">
+            <form class="TestTypeForm" action="TestTypeServlet" method="post">
+                <input type="radio" name="testType" value="oneAns" checked>ერთპასუხიანი ტესტი <br>
+                <input type="radio" name="testType" value="multiAns">რამდენიმეპასუხიანი ტესტი <br>
+                <input type="radio" name="testType" value="open">ღია შეკითხვა <br>
+                <button id="button" type="submit">გაგრძელება</button>
+                <a href="http://www.google.com">მთავარ გვერდზე დაბრუნება</a>
 
             </form>
-
-    </div>
-</body>
+        </div>
+    </body>
 </html>
