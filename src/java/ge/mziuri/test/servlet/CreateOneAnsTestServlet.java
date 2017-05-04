@@ -43,23 +43,23 @@ public class CreateOneAnsTestServlet extends HttpServlet {
                 }
             }
         }
-        System.out.println(contestid);
-        test.getAnswers().add(ans1);
-        test.getAnswers().add(ans2);
-        test.getAnswers().add(ans3);
-        test.getAnswers().add(ans4);
-        test.getAnswers().add(ans5);
-        test.getAnswers().add(ans6);
+System.out.println(contestid);
+        if(!"".equals(ans1)) test.getAnswers().add(ans1);
+        if(!"".equals(ans2)) test.getAnswers().add(ans2);
+        if(!"".equals(ans3)) test.getAnswers().add(ans3);
+        if(!"".equals(ans4)) test.getAnswers().add(ans4);
+        if(!"".equals(ans5)) test.getAnswers().add(ans5);
+        if(!"".equals(ans6)) test.getAnswers().add(ans6);
         test.setType(QuestionType.SINGLE_ANSWER);
         test.getAnswerIndexes().add(correctanswer);
         test.setContestid(contestid);
         test.getOpenquestionanswer().add(openquestionanswer);
-        test.setQuestion(question);
+        if(!"".equals(question)) test.setQuestion(question);
         TestDAO testDAO = new TestDAOImpl();
         testDAO.addTest(test);
         RequestDispatcher rd = request.getRequestDispatcher("TestType.jsp");
         rd.forward(request, response);
-
+        
     }
         
 }

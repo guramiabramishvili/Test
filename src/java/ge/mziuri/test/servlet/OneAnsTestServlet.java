@@ -63,24 +63,29 @@ public class OneAnsTestServlet extends HttpServlet {
         }
         List<Test> tests = testDAO.getQuestionByContestId(contestid);
         if (questionNumber == tests.size()) {
-//            result.setContest(contestDAO.getContestbyId(contestid));
-//            result.setUser(userDAO.getUserbyID(UserId));
-//            result.setPoint(points);
-//            resultDAO.addResult(result); 
+            result.setContest(contestDAO.getContestbyId(contestid));
+            result.setUser(userDAO.getUserbyID(UserId));
+            result.setPoint(points);
+            resultDAO.addResult(result);
             RequestDispatcher rd = request.getRequestDispatcher("userHome.jsp");
             rd.forward(request, response);
         } else {
-            Cookie pointsCookie = new Cookie("Points", "" + points);
+            
             Cookie testNumberCookie = new Cookie("TestNumber", "" + (questionNumber + 1));
-            response.addCookie(pointsCookie);
+           
             response.addCookie(testNumberCookie);
-            Test test = tests.get(questionNumber);
-            try {
-                int answer = Integer.parseInt(request.getParameter("answer"));
-                if (test.getAnswerIndexes().get(0) == answer) {
-                    points++;
+            if (questionNumber != 0) {
+                Test test = tests.get(questionNumber - 1);
+                try {
+                    int correctanswer = test.getAnswerIndexes().get(0) - 1;
+                    int answer = Integer.parseInt(request.getParameter("answer"));
+                    if (answer == correctanswer) {
+                        points++;
+                     Cookie pointsCookie = new Cookie("Points", "" + points);
+                      response.addCookie(pointsCookie);
+                    }
+                } catch (Exception ignored) {
                 }
-            } catch (Exception ignore) {
             }
             QuestionType nextQuestionType = tests.get(questionNumber).getType();
             if (nextQuestionType.name().equals("SINGLE_ANSWER")) {

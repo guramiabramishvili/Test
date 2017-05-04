@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ერთ პასუხიანი ტესტი</title>
+        <title>მრავალ პასუხიანი ტესტი</title>
     </head>
     <body>
         <form>
@@ -36,7 +36,6 @@
                 String question = test.get(questionNumber).getQuestion();
                
 %>
-
             <input type="text" style="width:800px; height:100px; font-size:20px"  value="<%=question%>"   name="question" /> <br> <br> 
                 
             <%
@@ -45,10 +44,7 @@
                     out.write("<input type=\"checkbox\" name=\"CorrectAns\" value=\"" + i + "\">");
                     out.write("<input type=\"text\" style=\"width:400px; height:50px;\"  name=\"" + i + "\" /> <br> <br> ");
                 }              
-            %>
-
-
-            
+            %>            
             <input type="submit" value="გაგრძელება" />
         </form>
     </body>
