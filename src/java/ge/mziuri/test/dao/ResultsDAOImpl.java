@@ -1,4 +1,4 @@
-package ge.mziuri.test.dao;
+ package ge.mziuri.test.dao;
 
 import ge.mziuri.test.metainfo.DatabaseMetaInfo;
 import ge.mziuri.test.model.Result;
@@ -28,7 +28,7 @@ public class ResultsDAOImpl implements ResultsDAO {
             pstmt.setInt(1, result.getUser().getId());
             pstmt.setInt(2, result.getContest().getId());
             pstmt.setInt(3, result.getPoint());
-          
+            pstmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         } finally {

@@ -29,6 +29,8 @@
                     response.addCookie(ContestIdCookie);
                     Cookie TestNumberCookie = new Cookie("TestNumber", "0");
                     response.addCookie(TestNumberCookie);
+                    Cookie pointsCookie = new Cookie("Points", "0");
+                    response.addCookie(pointsCookie);
                     ContestDAO contestDAO = new ContestDAOImpl();
                     TestDAO testDAO = new TestDAOImpl();
                     Contest contest = contestDAO.getContestbyId(ContestId);
@@ -39,7 +41,7 @@
                             + "კონტესტის ხანგრძლივობა " + contest.getDuration() / 60 + "  წუთი" + "<br> <br>"
                     );
                     if (/*(contest.getDate().getTime() / 1000) <= (new Date().getTime() / 1000)
-                            &&*/ (new Date().getTime() / 1000) < (contest.getDate().getTime() / 1000 + contest.getDuration() / 1000)) {
+                            &&*/(new Date().getTime() / 1000) < (contest.getDate().getTime() / 1000 + contest.getDuration() / 1000)) {
                         if ((firsttest.getType().name().equals("SINGLE_ANSWER") == true)) {
                             out.write("<a href=\"OneAnsTestServlet\">" + "კონტესტის დაწყება" + "</a> <br>");
                         }

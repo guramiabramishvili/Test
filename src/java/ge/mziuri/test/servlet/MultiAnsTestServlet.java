@@ -12,6 +12,7 @@ import ge.mziuri.test.model.QuestionType;
 import ge.mziuri.test.model.Result;
 import ge.mziuri.test.model.Test;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class OneAnsTestServlet extends HttpServlet {
+public class MultiAnsTestServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
@@ -63,17 +64,6 @@ public class OneAnsTestServlet extends HttpServlet {
         }
         List<Test> tests = testDAO.getQuestionByContestId(contestid);
         if (questionNumber == tests.size()) {
-            Test test = tests.get(questionNumber - 1);
-                try {
-                    int correctanswer = test.getAnswerIndexes().get(0) - 1;
-                    int answer = Integer.parseInt(request.getParameter("answer"));
-                    if (answer == correctanswer) {
-                        points++;
-                        Cookie pointsCookie = new Cookie("Points", "" + points);
-                        response.addCookie(pointsCookie);
-                    }
-                } catch (Exception ignored) {
-                }
             result.setContest(contestDAO.getContestbyId(contestid));
             result.setUser(userDAO.getUserbyID(UserId));
             result.setPoint(points);
@@ -81,20 +71,25 @@ public class OneAnsTestServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("userHome.jsp");
             rd.forward(request, response);
         } else {
-            
+
             Cookie testNumberCookie = new Cookie("TestNumber", "" + (questionNumber + 1));
-           
+
             response.addCookie(testNumberCookie);
             if (questionNumber != 0) {
                 Test test = tests.get(questionNumber - 1);
                 try {
-                    int correctanswer = test.getAnswerIndexes().get(0) - 1;
-                    int answer = Integer.parseInt(request.getParameter("answer"));
-                    if (answer == correctanswer) {
+                    String[] correctanswer = request.getParameterValues("CorrectAns");
+                    List<Integer> correctanswers = new ArrayList<>();
+                    for (int i = 0; i < correctanswer.length; i++) {
+                        correctanswers.add(Integer.parseInt(correctanswer[i]));
+                    }
+                for(int i=0;i<test.getAnswerIndexes().size();i++){
+                    if (test.getAnswerIndexes().get(i) == correctanswers.get(i)) {
                         points++;
                         Cookie pointsCookie = new Cookie("Points", "" + points);
                         response.addCookie(pointsCookie);
-                    }
+                    
+                    }}
                 } catch (Exception ignored) {
                 }
             }

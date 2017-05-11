@@ -13,7 +13,7 @@
         <title> ღია კითხვა</title>
     </head>
     <body>
-        <form>
+        <form action="OpenAnsTestServlet" method="get">
             <%
                 TestDAO testDAO = new TestDAOImpl();
 

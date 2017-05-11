@@ -13,7 +13,7 @@
         <title>მრავალ პასუხიანი ტესტი</title>
     </head>
     <body>
-        <form>
+        <form action="MultiAnsTestServlet" method="get">
             <%
                 TestDAO testDAO = new TestDAOImpl();
 
