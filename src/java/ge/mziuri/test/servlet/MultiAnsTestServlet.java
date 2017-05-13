@@ -35,6 +35,7 @@ public class MultiAnsTestServlet extends HttpServlet {
         int questionNumber = 0;
         int UserId = 0;
         int points = 0;
+        int a=0;
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
@@ -64,6 +65,25 @@ public class MultiAnsTestServlet extends HttpServlet {
         }
         List<Test> tests = testDAO.getQuestionByContestId(contestid);
         if (questionNumber == tests.size()) {
+              Test test = tests.get(questionNumber - 1);
+                try {
+                    String[] correctanswer = request.getParameterValues("CorrectAns");
+                    List<Integer> correctanswers = new ArrayList<>();
+                    for (int i = 0; i < correctanswer.length; i++) {
+                        correctanswers.add(Integer.parseInt(correctanswer[i]));
+                    }
+                for(int i=0;i<test.getAnswerIndexes().size();i++){
+                    if (test.getAnswerIndexes().get(i)-1 == correctanswers.get(i)) {
+                       a++;
+                    
+                    }
+                    if(a==test.getAnswerIndexes().size()){
+                       points=points+1;
+                        Cookie pointsCookie = new Cookie("Points", "" + points);
+                        response.addCookie(pointsCookie);
+                }}
+                } catch (Exception ignored) {
+                }
             result.setContest(contestDAO.getContestbyId(contestid));
             result.setUser(userDAO.getUserbyID(UserId));
             result.setPoint(points);
@@ -84,12 +104,15 @@ public class MultiAnsTestServlet extends HttpServlet {
                         correctanswers.add(Integer.parseInt(correctanswer[i]));
                     }
                 for(int i=0;i<test.getAnswerIndexes().size();i++){
-                    if (test.getAnswerIndexes().get(i) == correctanswers.get(i)) {
-                        points++;
+                    if (test.getAnswerIndexes().get(i)-1 == correctanswers.get(i)) {
+                       a++;
+                    
+                    }
+                    if(a==test.getAnswerIndexes().size()){
+                       points=points+1;
                         Cookie pointsCookie = new Cookie("Points", "" + points);
                         response.addCookie(pointsCookie);
-                    
-                    }}
+                }}
                 } catch (Exception ignored) {
                 }
             }

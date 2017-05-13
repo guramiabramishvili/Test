@@ -42,10 +42,10 @@
                      List<String> answers=test.get(questionNumber).getAnswers();
                 for(int i=0;i<answers.size();i++){
                     out.write("<input type=\"checkbox\" name=\"CorrectAns\" value=\"" + i + "\">");
-                    out.write("<input type=\"text\" style=\"width:400px; height:50px;\"  name=\"" + i + "\" /> <br> <br> ");
+                    out.write("<input type=\"text\" style=\"width:400px; height:50px;\"  name=\"" + i + "\" value=\"" + answers.get(i) + "\" /> <br> <br> ");
                 }              
             %>            
             <input type="submit" value="გაგრძელება" />
-        </form>
+        </form> 
     </body>
 </html>

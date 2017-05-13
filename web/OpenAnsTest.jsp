@@ -36,7 +36,7 @@
                 String question = test.get(questionNumber).getQuestion();
                 %>
                 <input type="text" style="width:800px; height:100px; font-size:20px"  value="<%=question%>"   name="question" /> <br> <br> 
-              <input type="text" style="width:400px; height:50px;"   /> <br> <br> 
+              <input type="text" name="1" style="width:400px; height:50px;"   /> <br> <br> 
               <input type="submit" value="გაგძელება" />
         </form>
     </body>

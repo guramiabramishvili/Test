@@ -64,6 +64,19 @@ public class OpenAnsTestServlet extends HttpServlet {
         }
         List<Test> tests = testDAO.getQuestionByContestId(contestid);
         if (questionNumber == tests.size()) {
+            String answer = request.getParameter("1");
+             Test test = tests.get(questionNumber - 1);
+    try {
+                    for (int i = 0; i < test.getOpenquestionanswer().size(); i++) {
+                        if (answer.equals(test.getOpenquestionanswer().get(i))) {
+                            points++;
+                            Cookie pointsCookie = new Cookie("Points", "" + points);
+                            response.addCookie(pointsCookie);
+
+                        }
+                    }
+                } catch (Exception ignored) {
+                }
             result.setContest(contestDAO.getContestbyId(contestid));
             result.setUser(userDAO.getUserbyID(UserId));
             result.setPoint(points);
@@ -79,7 +92,7 @@ public class OpenAnsTestServlet extends HttpServlet {
             if (questionNumber != 0) {
                 try {
                     for (int i = 0; i < test.getOpenquestionanswer().size(); i++) {
-                        if (answer == test.getOpenquestionanswer().get(i)) {
+                        if (answer.equals(test.getOpenquestionanswer().get(i))) {
                             points++;
                             Cookie pointsCookie = new Cookie("Points", "" + points);
                             response.addCookie(pointsCookie);

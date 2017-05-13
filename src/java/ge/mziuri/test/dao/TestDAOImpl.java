@@ -74,7 +74,6 @@ public class TestDAOImpl implements TestDAO {
     @Override
     public List<Test> getQuestionByContestId(Integer contestId)  {
         List<Test> tests = new ArrayList<>();
-        
         try {
             pstmt = con.prepareCall("SELECT * FROM Test WHERE contest_id = ?;");
             pstmt.setInt(1, contestId);
@@ -86,8 +85,8 @@ public class TestDAOImpl implements TestDAO {
                 test.setContestid(rs.getInt("contest_id"));
                 test.setType(QuestionType.valueOf(rs.getString("question_type")));
                 String possibleAnswers = rs.getString("possible_answers");
-                if (possibleAnswers != null) {
-                test.setAnswers(new ArrayList<>(Arrays.asList(possibleAnswers.split(SPLITTER))));
+                if (possibleAnswers != null && !possibleAnswers.isEmpty()) {
+                    test.setAnswers(new ArrayList<>(Arrays.asList(possibleAnswers.split(SPLITTER))));
                 } else {
                     String correctOpenAnswers = rs.getString("correct_open_answers");
                     test.setOpenquestionanswer(new ArrayList<>(Arrays.asList(correctOpenAnswers.split(SPLITTER))));
