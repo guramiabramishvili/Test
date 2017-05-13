@@ -1,9 +1,3 @@
-<%-- 
-    Document   : TestType
-    Created on : Mar 15, 2017, 3:32:17 PM
-    Author     : lortkipanidze
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +13,7 @@
                 <input type="radio" name="testType" value="multiAns">რამდენიმეპასუხიანი ტესტი <br>
                 <input type="radio" name="testType" value="open">ღია შეკითხვა <br>
                 <button id="button" type="submit">გაგრძელება</button>
-                <a href="http://www.google.com">მთავარ გვერდზე დაბრუნება</a>
+                <a href="adminHome.jsp">მთავარ გვერდზე დაბრუნება</a>
 
             </form>
         </div>

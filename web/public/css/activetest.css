@@ -1,0 +1,36 @@
+.testbody{
+    text-align:center;
+    background: #26004d;
+    background: -webkit-linear-gradient(right, #26004d, #00b3b3);
+    background: -moz-linear-gradient(right, #26004d, #00b3b3);
+    background: -o-linear-gradient(right, #26004d, #00b3b3);
+    background: linear-gradient(to left, #26004d, #00b3b3);
+    font-family: "Roboto", sans-serif;
+}  
+input, select, textarea{
+    color:#ffffff;
+}
+input[type=checkbox]{
+   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3), 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+}
+input[type=text]{
+    background:#00264d;
+    font-size:16px;
+    text-align:center;
+    width:400px; height:50px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3), 0 5px 5px 0 rgba(0, 0, 0, 0.4);
+  }
+#q0{
+  padding-right:0.4%;
+  font-size:25px;
+}
+#b{
+    outline: 0;
+    padding: 10px;
+    width:8%;
+    border:0;
+    background:#000d1a;
+    color:#ffffff;
+    font-size:18px;
+    cursor:pointer;
+}

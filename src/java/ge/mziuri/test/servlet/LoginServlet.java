@@ -35,13 +35,17 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
             rd.forward(request, response);
         } else if (user.isAdmin() == true) {
-            RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
             int UserId = user.getId();
             Cookie UserCookie = new Cookie("UserId", "" + UserId);
             response.addCookie(UserCookie);
+            RequestDispatcher rd = request.getRequestDispatcher("adminHome.jsp");
+          
             rd.forward(request, response);
 
         } else {
+              int UserId = user.getId();
+            Cookie UserCookie = new Cookie("UserId", "" + UserId);
+            response.addCookie(UserCookie);
             RequestDispatcher rd = request.getRequestDispatcher("userHome.jsp");
             rd.forward(request, response);
         }

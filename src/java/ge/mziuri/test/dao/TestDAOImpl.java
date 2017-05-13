@@ -1,11 +1,8 @@
 package ge.mziuri.test.dao;
 
-import ge.mziuri.test.exceptions.ContestException;
 import ge.mziuri.test.metainfo.DatabaseMetaInfo;
-import ge.mziuri.test.model.Contest;
 import ge.mziuri.test.model.QuestionType;
 import ge.mziuri.test.model.Test;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -67,13 +64,16 @@ public class TestDAOImpl implements TestDAO {
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
     }
 
     @Override
-    public List<Test> getquestionbyContest_id(Integer contestId)  {
+    public List<Test> getQuestionByContestId(Integer contestId)  {
         List<Test> tests = new ArrayList<>();
-        
         try {
             pstmt = con.prepareCall("SELECT * FROM Test WHERE contest_id = ?;");
             pstmt.setInt(1, contestId);
@@ -85,8 +85,8 @@ public class TestDAOImpl implements TestDAO {
                 test.setContestid(rs.getInt("contest_id"));
                 test.setType(QuestionType.valueOf(rs.getString("question_type")));
                 String possibleAnswers = rs.getString("possible_answers");
-                if (possibleAnswers != null) {
-                test.setAnswers(new ArrayList<>(Arrays.asList(possibleAnswers.split(SPLITTER))));
+                if (possibleAnswers != null && !possibleAnswers.isEmpty()) {
+                    test.setAnswers(new ArrayList<>(Arrays.asList(possibleAnswers.split(SPLITTER))));
                 } else {
                     String correctOpenAnswers = rs.getString("correct_open_answers");
                     test.setOpenquestionanswer(new ArrayList<>(Arrays.asList(correctOpenAnswers.split(SPLITTER))));
@@ -94,16 +94,20 @@ public class TestDAOImpl implements TestDAO {
                 String correctAnswerIndexesString = rs.getString("correct_answer_indexes");
                 List<Integer> answerIndexes  = new ArrayList<>();
                 for (String part : correctAnswerIndexesString.split(SPLITTER)) {
-                    answerIndexes.add(Integer.parseInt(part));
+                    if (part != null && !part.isEmpty()) {
+                        answerIndexes.add(Integer.parseInt(part));
+                    }
                 }
                 test.setAnswerIndexes(answerIndexes);
                 tests.add(test);
             }            
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
         return tests;
-
     }
-
 }

@@ -10,7 +10,8 @@
 <%@page import="ge.mziuri.test.dao.ContestDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
+<html>
+    <head>
 <link rel="stylesheet" type="text/css" href="public/css/adminhome.css">
 <title> admin </title>
 <meta charset="UTF-8">

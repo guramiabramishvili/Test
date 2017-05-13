@@ -48,6 +48,10 @@ public class UserDAOImpl implements UserDAO {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
     }
 
@@ -77,6 +81,10 @@ public class UserDAOImpl implements UserDAO {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
         return user;
     }
@@ -108,8 +116,11 @@ public class UserDAOImpl implements UserDAO {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException ex) {}
         }
         return user;
     }
-    
 }
