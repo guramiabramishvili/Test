@@ -9,12 +9,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="public/css/activetest.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ერთ პასუხიანი ტესტი</title>
+        <title> ღია კითხვა</title>
     </head>
     <body class="testbody">
-        <form action="OneAnsTestServlet" method="get">
-     <%
+        <form action="OpenAnsTestServlet" method="get">
+            <%
                 TestDAO testDAO = new TestDAOImpl();
 
                 int contestid = 0;
@@ -32,21 +33,11 @@
                         }
                     }
                 }
-                List<Test> tests = testDAO.getQuestionByContestId(contestid);
-                String question = tests.get(questionNumber).getQuestion();
+                List<Test> test = testDAO.getQuestionByContestId(contestid);
+                String question = test.get(questionNumber).getQuestion();
                 %>
-                                
-            <input type="text" id="q0" style="width:800px; height:100px;"  value="<%=question%>" name="question" readonly /> <br> <br> 
-                 <%
-                List<String> answers=tests.get(questionNumber).getAnswers();
-                
-                for(int i=0;i<answers.size();i++){
-                  out.write("<input type=\"radio\" name=\"answer\" value=\"" + i + "\" >");
-                  out.write("<input type=\"text\"   name=\"" + i + "\" value=\"" + answers.get(i) + "\" /> <br> <br> ");
-                }
-
-            %>
-                     
+                <input type="text" style="width:800px; height:100px; "value="<%=question%>"name="question" readonly /> <br> <br> 
+              <input id="open" type="text" name="1"/> <br> <br> 
               <button id="b" type="submit">გაგრძელება</button>
         </form>
     </body>

@@ -32,10 +32,10 @@
 }
 .adminhomebody{
     background: #004d00;
-    background: -webkit-linear-gradient(right, #004d00, #339966);
-    background: -moz-linear-gradient(right, #004d00, #339966);
-    background: -o-linear-gradient(right, #004d00, #339966);
-    background: linear-gradient(to left, #004d00, #000080);
+    background: -webkit-linear-gradient(right, #26004d, #00b3b3);
+    background: -moz-linear-gradient(right, #26004d, #00b3b3);
+    background: -o-linear-gradient(right, #26004d, #00b3b3);
+    background: linear-gradient(to left, #26004d, #00b3b3);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 

@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="public/css/activetest.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ერთ პასუხიანი ტესტი</title>
     </head>

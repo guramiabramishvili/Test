@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="public/css/activetest.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>მრავალ პასუხიანი ტესტი</title>
     </head>
@@ -42,10 +43,10 @@
                      List<String> answers=test.get(questionNumber).getAnswers();
                 for(int i=0;i<answers.size();i++){
                     out.write("<input type=\"checkbox\" name=\"CorrectAns\" value=\"" + i + "\">");
-                    out.write("<input type=\"text\" style=\"width:400px; height:50px;\"  name=\"" + i + "\" value=\"" + answers.get(i) + "\" /> <br> <br> ");
+                    out.write("<input type=\"text\" style=\"width:400px; height:50px;\"  name=\"" + i + "\" value=\"" + answers.get(i) + "\" \" readonly \" /> <br> <br> ");
                 }              
             %>            
-            <input type="submit" value="გაგრძელება" />
+            <<button id="b" type="submit">გაგრძელება</button>
         </form> 
     </body>
 </html>

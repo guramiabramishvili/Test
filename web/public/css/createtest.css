@@ -18,7 +18,7 @@ input[type=text]{
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3), 0 5px 5px 0 rgba(0, 0, 0, 0.4);
   }
 input::placeholder {
-  color:#b3b3b3;
+  color:#bbbbc2;
 }
 input, select, textarea{
     color:#ffffff;
@@ -31,7 +31,7 @@ input, select, textarea{
     padding: 10px;
     width:8%;
     border:0;
-    background:#000d1a;
+    background:#004080;
     color:#ffffff;
     font-size:18px;
     cursor:pointer;
