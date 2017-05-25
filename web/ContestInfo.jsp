@@ -1,10 +1,3 @@
-<%-- 
-    Document   : Test
-    Created on : Mar 30, 2017, 5:13:23 PM
-    Author     : User
---%>
-
-
 
 <%@page import="ge.mziuri.test.model.Test"%>
 <%@page import="ge.mziuri.test.model.Contest"%>

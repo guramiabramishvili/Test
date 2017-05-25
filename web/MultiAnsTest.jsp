@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>მრავალ პასუხიანი ტესტი</title>
     </head>
-    <body>
+    <body class="testbody">
         <form action="MultiAnsTestServlet" method="get">
             <%
                 TestDAO testDAO = new TestDAOImpl();
@@ -46,7 +46,7 @@
                     out.write("<input type=\"text\" style=\"width:400px; height:50px;\"  name=\"" + i + "\" value=\"" + answers.get(i) + "\" \" readonly \" /> <br> <br> ");
                 }              
             %>            
-            <<button id="b" type="submit">გაგრძელება</button>
+            <button id="b" type="submit">გაგრძელება</button>
         </form> 
     </body>
 </html>

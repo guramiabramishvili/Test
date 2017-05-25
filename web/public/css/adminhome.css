@@ -40,3 +40,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; 
 }
+a:link{
+    float:left;
+    clear:left
+}

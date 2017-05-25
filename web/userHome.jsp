@@ -8,12 +8,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="public/css/userhome.css">
         <title> user </title>
         <meta charset="UTF-8">
 
     </head>
-    <body>
-        <div >
+    <body class="userbody">
+        <div class="contests">
             <font size="3">არსებული კონტესტები:</font> <br>
             <%
                 ContestDAO contestDAO = new ContestDAOImpl();
@@ -21,11 +22,10 @@
                 RequestDispatcher rd = request.getRequestDispatcher("jsp");
                 List<Contest> contests = contestDAO.getAllContest(true);
                 for (int i = 0; i < contests.size(); i++) {
-                    out.write("<a href=\"ContestInfo.jsp?contestId=" + contests.get(i).getId()+ "\">" + i + ")"
-                            + contests.get(i).getName() + "</a> <br>");
+                    out.write("<a href=\"ContestInfo.jsp?contestId=" + contests.get(i).getId()+ "\">" + (i+1) + ")"
+                            + contests.get(i).getName() + "</a> <br> ");
                }
             %>
-
         </div>
     </body>
 </html>

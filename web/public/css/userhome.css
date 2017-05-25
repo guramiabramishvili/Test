@@ -1,0 +1,30 @@
+.contests {
+  position: absolute;
+  top: 3%;
+  margin: -100px 0 0 -150px;
+  left: 50%;
+  background: #FFFFFF;
+  max-width: 500px;
+  margin-top:20px;
+  padding-top:30px;
+  padding-bottom:30px;
+  padding-left: 3%;
+  padding-right: 3%;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.25);
+  float:left;
+}
+.userbody{
+    background: #004d00;
+    background: -webkit-linear-gradient(right, #26004d, #00b3b3);
+    background: -moz-linear-gradient(right, #26004d, #00b3b3);
+    background: -o-linear-gradient(right, #26004d, #00b3b3);
+    background: linear-gradient(to left, #26004d, #00b3b3);
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+}
+a:link{
+float:left;
+clear: left;
+}
