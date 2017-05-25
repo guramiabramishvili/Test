@@ -54,7 +54,7 @@ public class Contest implements Serializable {
         this.date = date;
     }
 
-    public Time getTime() {
+    public Time getCurrentTime() {
         return time;
     }
 

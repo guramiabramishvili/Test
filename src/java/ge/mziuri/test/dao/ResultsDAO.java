@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ResultsDAO {
    Void addResult (Result result);
-//  List<Result>  getresultbycontest_id(Integer contestid);
+  List<Result>  getresultbycontest_id(Integer contestid);
   
 }
