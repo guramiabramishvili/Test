@@ -1,5 +1,4 @@
 package ge.mziuri.test.dao;
-
 import ge.mziuri.test.metainfo.DatabaseMetaInfo;
 import ge.mziuri.test.model.Contest;
 import java.sql.Connection;
