@@ -33,7 +33,7 @@ public class ContestDAOImpl implements ContestDAO {
             pstmt = con.prepareStatement("INSERT INTO contest (name,opendate,opentime,duration) VALUES (?,?,?,?) RETURNING id");
             pstmt.setString(1, contest.getName());
             pstmt.setDate(2, contest.getDate());
-            pstmt.setTime(3, contest.getTime());
+            pstmt.setTime(3, contest.getCurrentTime());
             pstmt.setInt(4, contest.getDuration());
             ResultSet rs = pstmt.executeQuery();
             rs.next();
@@ -114,6 +114,7 @@ public class ContestDAOImpl implements ContestDAO {
                 contest.setId(id);
                 contest.setName(name);
                 contest.setTime(time);
+
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

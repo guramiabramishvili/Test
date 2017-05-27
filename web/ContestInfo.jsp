@@ -1,4 +1,19 @@
+<%-- 
+    Document   : Test
+    Created on : Mar 30, 2017, 5:13:23 PM
+    Author     : User
+--%>
 
+
+
+<%@page import="ge.mziuri.test.dao.UserDAOImpl"%>
+<%@page import="ge.mziuri.test.dao.UserDAO"%>
+<%@page import="ge.mziuri.test.dao.ResultsDAO"%>
+<%@page import="ge.mziuri.test.dao.ResultsDAOImpl"%>
+<%@page import="ge.mziuri.test.model.Result"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="ge.mziuri.test.model.Test"%>
 <%@page import="ge.mziuri.test.model.Contest"%>
 <%@page import="ge.mziuri.test.dao.TestDAO"%>
@@ -25,16 +40,20 @@
                     Cookie pointsCookie = new Cookie("Points", "0");
                     response.addCookie(pointsCookie);
                     ContestDAO contestDAO = new ContestDAOImpl();
+                    UserDAO userDAO = new UserDAOImpl();
                     TestDAO testDAO = new TestDAOImpl();
+                    ResultsDAO resultsDAO = new ResultsDAOImpl();
                     Contest contest = contestDAO.getContestbyId(ContestId);
+                    long CurrentDateInMills = new Date().getTime() ;
+                    long DatabaseDateInMills = contest.getDate().getTime() + contest.getCurrentTime().getTime();
+                    long Duration = contest.getDuration()*1000;
                     Test firsttest = testDAO.getQuestionByContestId(ContestId).get(0);
                     out.write(" კონტესტის სახელი " + contest.getName() + "<br>"
                             + "კონტესტის დაწღების თარიღი " + contest.getDate() + "<br>"
-                            + "კონტესტის დაწყების დრო " + contest.getTime() + "<br>"
+                            + "კონტესტის დაწყების დრო " + contest.getCurrentTime() + "<br>"
                             + "კონტესტის ხანგრძლივობა " + contest.getDuration() / 60 + "  წუთი" + "<br> <br>"
-                    );
-                    if (/*(contest.getDate().getTime() / 1000) <= (new Date().getTime() / 1000)
-                            &&*/(new Date().getTime() / 1000) < (contest.getDate().getTime() / 1000 + contest.getDuration() / 1000)) {
+                                    );
+                    if (DatabaseDateInMills <= CurrentDateInMills && CurrentDateInMills < (DatabaseDateInMills + Duration )) {
                         if ((firsttest.getType().name().equals("SINGLE_ANSWER") == true)) {
                             out.write("<a href=\"OneAnsTestServlet\">" + "კონტესტის დაწყება" + "</a> <br>");
                         }
@@ -44,11 +63,20 @@
                         if ((firsttest.getType().name().equals("MULTIPLE_ANSWER") == true)) {
                             out.write("<a href=\"MultiAnsTestServlet\">" + "კონტესტის დაწყება" + "</a> <br>");
                         }
-
-                    } else if ((new Date().getTime() / 1000) > (contest.getDate().getTime() / 1000 + contest.getDuration() / 1000)) {
+                    } else if (CurrentDateInMills > (DatabaseDateInMills + Duration)) {
                         out.write("კონტესტი დამთავრებულია!");
-                    } else if ((new Date().getTime() / 1000) < (contest.getDate().getTime()) / 1000) {
+                    } else if (CurrentDateInMills < DatabaseDateInMills) {
                         out.write("კონტესტი ჯერ  არ დაწყებულა");
+                    }
+                    List<Result> results = new ArrayList<>();
+                    results = resultsDAO.getResultByContestId(ContestId);
+
+                    for (int i = 0; i < results.size(); i++) {
+                        String username = results.get(i).getUser().getUsername();
+                        int point = results.get(i).getPoint();
+
+                        out.write((i+1) + ": " + "username: " + username
+                                +" "+ " points: " + point + "<br>");
                     }
                 }
             %>

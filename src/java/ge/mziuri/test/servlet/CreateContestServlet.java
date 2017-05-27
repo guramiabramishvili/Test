@@ -48,7 +48,7 @@ public class CreateContestServlet extends HttpServlet {
             String min = time.substring(3, 5);
             int hour1 = Integer.parseInt(hour);
             int min1 = Integer.parseInt(min);
-            int milisecs = ( hour1 - 4) * 60 * 60 * 1000 + min1 * 60 * 1000;
+            int milisecs = ( hour1 ) * 60 * 60 * 1000 + min1 * 60 * 1000;
             Time time1 = new Time(milisecs);
             contest.setTime(time1);
             ContestDAO contestDAO = new ContestDAOImpl();
