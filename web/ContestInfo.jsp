@@ -25,6 +25,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="public/css/contestinfo.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ContestInfo</title>
     </head>
@@ -64,19 +65,21 @@
                             out.write("<a href=\"MultiAnsTestServlet\">" + "კონტესტის დაწყება" + "</a> <br>");
                         }
                     } else if (CurrentDateInMills > (DatabaseDateInMills + Duration)) {
-                        out.write("კონტესტი დამთავრებულია!");
+                        out.write("კონტესტი დამთავრებულია!"+"<br>"+"<br>");
                     } else if (CurrentDateInMills < DatabaseDateInMills) {
-                        out.write("კონტესტი ჯერ  არ დაწყებულა");
+                        out.write("კონტესტი ჯერ არ დაწყებულა"+ "<br>" +"<br>");
                     }
+                    out.write("<table>" + "<tr>"
+                            + "<th>RANK </th>"
+                            + "<th>Username </th>"
+                            + "<th>Points </th>"
+                            + "</tr>");
                     List<Result> results = new ArrayList<>();
                     results = resultsDAO.getResultByContestId(ContestId);
-
                     for (int i = 0; i < results.size(); i++) {
                         String username = results.get(i).getUser().getUsername();
                         int point = results.get(i).getPoint();
-
-                        out.write((i+1) + ": " + "username: " + username
-                                +" "+ " points: " + point + "<br>");
+                        out.write("<tr>" + "<td>"+(i+1)+"</td>" + "<td>"+username+"</td>" + "<td>"+point+"</td>");
                     }
                 }
             %>

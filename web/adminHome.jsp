@@ -42,7 +42,7 @@
             for (int i = 0; i < contests.size(); i++) {
                 out.write("<a href=\"TestType.jsp?contestId=" + contests.get(i).getId() + "\">" + (i + 1) + ")"
                         + contests.get(i).getName() + " - დაწყების დრო  " + contests.get(i).getDate() + "  "
-                        + contests.get(i).getTime() + "</a> <br>");
+                        + contests.get(i).getCurrentTime() + "</a> <br>");
             }
             %>   </font>
     </div>
